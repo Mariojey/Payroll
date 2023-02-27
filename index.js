@@ -14,11 +14,11 @@ async function run() {
         });
 
         const result = await connection.execute(
-            `SELECT * FROM emp_sals`, [100]
+            `SELECT * FROM emp_sals WHERE emp_sals.name LIKE 'SMITH'`
         );
         console.log(result.rows);
     } catch (err) {
-        console.log(error);
+        console.log(err);
     } finally {
         if (connection) {
             try {
@@ -29,3 +29,5 @@ async function run() {
         }
     }
 }
+
+run()
