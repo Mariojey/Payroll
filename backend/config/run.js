@@ -1,6 +1,5 @@
 require('dotenv').config()
 const oracledb = require('oracledb');
-
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
 async function run() {
