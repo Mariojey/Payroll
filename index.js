@@ -14,7 +14,7 @@ async function run() {
         });
 
         const result = await connection.execute(
-            `SELECT * FROM emp_sals WHERE emp_sals.name LIKE 'SMITH'`
+            `SELECT * FROM place`
         );
         console.log(result.rows);
     } catch (err) {
