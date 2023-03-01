@@ -166,7 +166,13 @@ function App() {
     setLoading(true)
     const URL = `https://jsonplaceholder.typicode.com/todos`
 
-    const res = await fetch(URL)
+    const res = await fetch(URL, {
+      method: 'GET',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      }
+    })
 
     const list = await res.json()
 
