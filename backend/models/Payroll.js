@@ -2,6 +2,7 @@ const db = require('../config/db')
 
 class Payroll {
     constructor(
+        id,
         name,
         family_name,
         basic_salary,
@@ -18,6 +19,7 @@ class Payroll {
         bonus_u_month_proc_oct,
         bonus_u_month_proc_nov,
         bonus_u_month_proc_dec,
+        bonus_u_month_val_jan,
         bonus_u_month_val_feb,
         bonus_u_month_val_mar,
         bonus_u_month_val_apr,
@@ -38,7 +40,8 @@ class Payroll {
         max_bonus,
         avg_bonus
     ) {
-        this.name = name;
+        this.id = id,
+            this.name = name;
         this.family_name = family_name;
         this.basic_salary = basic_salary;
         this.motivation_bonus = motivation_bonus;
@@ -54,6 +57,7 @@ class Payroll {
         this.bonus_u_month_proc_oct = bonus_u_month_proc_oct;
         this.bonus_u_month_proc_nov = bonus_u_month_proc_nov;
         this.bonus_u_month_proc_dec = bonus_u_month_proc_dec;
+        this.bonus_u_month_val_jan = bonus_u_month_val_jan;
         this.bonus_u_month_val_feb = bonus_u_month_val_feb;
         this.bonus_u_month_val_mar = bonus_u_month_val_mar;
         this.bonus_u_month_val_apr = bonus_u_month_val_apr;
