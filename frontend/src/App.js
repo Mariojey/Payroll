@@ -1,4 +1,4 @@
-import DataTable from 'react-data-table-component';
+import DataTable, {createTheme} from 'react-data-table-component';
 import {useState, useEffect} from 'react';
 
 function App() {
@@ -174,14 +174,23 @@ function App() {
     setLoading(false)
   }
 
+  createTheme('dark', {
+    background: {
+      default: '#000',
+    },
+    color: {
+      default: '#fff'
+    }
+  });
   return (
     <div className="App">
       <DataTable
         title="Lista Plac"
         columns={columns}
         data={data}
+        theme="dark"
         progressPending={loading}
-        pagination={perPage}
+        pagination
       />
     </div>
   );
