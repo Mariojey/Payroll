@@ -123,12 +123,100 @@ function App() {
       selector: (row) => row.bonus_u_month_val_dec
     },
     {
-      name: "PREMIA_CALKOWITA_MIESIECZNA",
-      selector: (row) => row.all_month_bonus
+      name: "PREMIA_CAL_MIES_STY",
+      selector: (row) => row.all_month_bonus_jan
     },
     {
-      name: "PENSJA_CALKOWITA_MIESIECZNA",
-      selector: (row) => row.all_month_salary
+      name: "PREMIA_CAL_MIES_LUT",
+      selector: (row) => row.all_month_bonus_feb
+    },
+    {
+      name: "PREMIA_CAL_MIES_MAR",
+      selector: (row) => row.all_month_bonus_mar
+    },
+    {
+      name: "PREMIA_CAL_MIES_KWI",
+      selector: (row) => row.all_month_bonus_apr
+    },
+    {
+      name: "PREMIA_CAL_MIES_MAI",
+      selector: (row) => row.all_month_bonus_mai
+    },
+    {
+      name: "PREMIA_CAL_MIES_CZE",
+      selector: (row) => row.all_month_bonus_jul
+    },
+    {
+      name: "PREMIA_CAL_MIES_LIP",
+      selector: (row) => row.all_month_bonus_jun
+    },
+    {
+      name: "PREMIA_CAL_MIES_SIE",
+      selector: (row) => row.all_month_bonus_aug
+    },
+    {
+      name: "PREMIA_CAL_MIES_WRZ",
+      selector: (row) => row.all_month_bonus_sep
+    },
+    {
+      name: "PREMIA_CAL_MIES_PAZ",
+      selector: (row) => row.all_month_bonus_oct
+    },
+    {
+      name: "PREMIA_CAL_MIES_LIS",
+      selector: (row) => row.all_month_bonus_nov
+    },
+    {
+      name: "PREMIA_CAL_MIES_GRU",
+      selector: (row) => row.all_month_bonus_dec
+    },
+    {
+      name: "PENSJA_CAL_MIES_STY",
+      selector: (row) => row.all_month_salary_jan
+    },
+    {
+      name: "PENSJA_CAL_MIES_LUT",
+      selector: (row) => row.all_month_salary_feb
+    },
+    {
+      name: "PENSJA_CAL_MIES_MAR",
+      selector: (row) => row.all_month_salary_mar
+    },
+    {
+      name: "PENSJA_CAL_MIES_KWI",
+      selector: (row) => row.all_month_salary_apr
+    },
+    {
+      name: "PENSJA_CAL_MIES_MAI",
+      selector: (row) => row.all_month_salary_mai
+    },
+    {
+      name: "PENSJA_CAL_MIES_CZE",
+      selector: (row) => row.all_month_salary_jul
+    },
+    {
+      name: "PENSJA_CAL_MIES_LIP",
+      selector: (row) => row.all_month_salary_jun
+    },
+    {
+      name: "PENSJA_CAL_MIES_SIE",
+      selector: (row) => row.all_month_salary_aug
+    },
+    {
+      name: "PENSJA_CAL_MIES_WRZ",
+      selector: (row) => row.all_month_salary_sep
+    },
+    {
+      name: "PENSJA_CAL_MIES_PAZ",
+      selector: (row) => row.all_month_salary_oct
+    },
+    {
+      name: "PENSJA_CAL_MIES_LIS",
+      selector: (row) => row.all_month_salary_nov
+    },
+    {
+      name: "PENSJA_CAL_MIES_GRU",
+      selector: (row) => row.all_month_salary_dec
     },
     {
       name: "PENSJA_MINIMALNA",

@@ -31,8 +31,30 @@ class Payroll {
         bonus_u_month_val_oct,
         bonus_u_month_val_nov,
         bonus_u_month_val_dec,
-        all_month_bonus,
-        all_month_salary,
+        all_month_bonus_jan,
+        all_month_bonus_feb,
+        all_month_bonus_mar,
+        all_month_bonus_apr,
+        all_month_bonus_mai,
+        all_month_bonus_jul,
+        all_month_bonus_jun,
+        all_month_bonus_aug,
+        all_month_bonus_sep,
+        all_month_bonus_oct,
+        all_month_bonus_nov,
+        all_month_bonus_dec,
+        all_month_salary_jan,
+        all_month_salary_feb,
+        all_month_salary_mar,
+        all_month_salary_apr,
+        all_month_salary_mai,
+        all_month_salary_jul,
+        all_month_salary_jun,
+        all_month_salary_aug,
+        all_month_salary_sep,
+        all_month_salary_oct,
+        all_month_salary_nov,
+        all_month_salary_dec,
         min_salary,
         max_salary,
         avg_salary,
@@ -69,11 +91,33 @@ class Payroll {
         this.bonus_u_month_val_oct = bonus_u_month_val_oct;
         this.bonus_u_month_val_nov = bonus_u_month_val_nov;
         this.bonus_u_month_val_dec = bonus_u_month_val_dec;
-        this.all_month_bonus = all_month_bonus;
-        this.all_month_salary = all_month_salary;
+        this.all_month_bonus_jan = all_month_bonus_jan;
+        this.all_month_bonus_feb = all_month_bonus_feb;
+        this.all_month_bonus_mar = all_month_bonus_mar;
+        this.all_month_bonus_apr = all_month_bonus_apr;
+        this.all_month_bonus_mai = all_month_bonus_mai;
+        this.all_month_bonus_jul = all_month_bonus_jul;
+        this.all_month_bonus_jun = all_month_bonus_jun;
+        this.all_month_bonus_aug = all_month_bonus_aug;
+        this.all_month_bonus_sep = all_month_bonus_sep;
+        this.all_month_bonus_oct = all_month_bonus_oct;
+        this.all_month_bonus_nov = all_month_bonus_nov;
+        this.all_month_bonus_dec = all_month_bonus_dec;
+        this.all_month_salary_jan = all_month_salary_jan;
+        this.all_month_salary_feb = all_month_salary_feb;
+        this.all_month_salary_mar = all_month_salary_mar;
+        this.all_month_salary_apr = all_month_salary_apr;
+        this.all_month_salary_mai = all_month_salary_mai;
+        this.all_month_salary_jul = all_month_salary_jul;
+        this.all_month_salary_jun = all_month_salary_jun;
+        this.all_month_salary_aug = all_month_salary_aug;
+        this.all_month_salary_sep = all_month_salary_sep;
+        this.all_month_salary_oct = all_month_salary_oct;
+        this.all_month_salary_nov = all_month_salary_nov;
+        this.all_month_salary_dec = all_month_salary_dec;
         this.min_salary = min_salary;
         this.max_salary = max_salary;
-        this.avg_salary = avg_bonus;
+        this.avg_salary = avg_salary;
         this.min_bonus = min_bonus;
         this.max_bonus = max_bonus;
         this.avg_bonus = avg_bonus;
