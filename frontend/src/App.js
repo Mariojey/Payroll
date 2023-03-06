@@ -12,235 +12,235 @@ function App() {
   const columns = [
     {
       name: "IMIE",
-      selector: (row) => row.name
+      selector: (row) => row.IMIE
     },
     {
       name: "NAZWISKO",
-      selector: (row) => row.family_name
+      selector: (row) => row.NAZWISKO
     },
     {
       name: "PENSJA_ZASADNICZA",
-      selector: (row) => row.basic_salary
+      selector: (row) => row.PENSJA_ZASADNICZA
     },
     {
       name: "PREMIA_MOTYWACYJNA",
-      selector: (row) => row.motivation_bonus
+      selector: (row) => row.PREMIA_MOTYWACYJNA
     },
     {
       name: "PREMIA_UZ_MIES_PR_STYCZEN",
-      selector: (row) => row.bonus_u_month_proc_jan
+      selector: (row) => row.PREMIA_UZ_MIES_PR_STYCZEN
     },
     {
       name: "PREMIA_UZ_MIES_PR_LUTY",
-      selector: (row) => row.bonus_u_month_proc_feb
+      selector: (row) => row.PREMIA_UZ_MIES_PR_LUTY
     },
     {
       name: "PREMIA_UZ_MIES_PR_MARZEC",
-      selector: (row) => row.bonus_u_month_proc_mar
+      selector: (row) => row.PREMIA_UZ_MIES_PR_MARZEC
     },
     {
       name: "PREMIA_UZ_MIES_PR_KWIECIEN",
-      selector: (row) => row.bonus_u_month_proc_arp
+      selector: (row) => row.PREMIA_UZ_MIES_PR_KWIECIEN
     },
     {
       name: "PREMIA_UZ_MIES_PR_MAJ",
-      selector: (row) => row.bonus_u_month_proc_mai
+      selector: (row) => row.PREMIA_UZ_MIES_PR_MAJ
     },
     {
       name: "PREMIA_UZ_MIES_PR_CZERWIEC",
-      selector: (row) => row.bonus_u_month_proc_jul
+      selector: (row) => row.PREMIA_UZ_MIES_PR_CZERWIEC
     },
     {
       name: "PREMIA_UZ_MIES_PR_LIPIEC",
-      selector: (row) => row.bonus_u_month_proc_jun
+      selector: (row) => row.PREMIA_UZ_MIES_PR_LIPIEC
     },
     {
       name: "PREMIA_UZ_MIES_PR_SIERPIEN",
-      selector: (row) => row.bonus_u_month_proc_aug
+      selector: (row) => row.PREMIA_UZ_MIES_PR_SIERPIEN
     },
     {
       name: "PREMIA_UZ_MIES_PR_WRZESIEN",
-      selector: (row) => row.bonus_u_month_proc_sep
+      selector: (row) => row.PREMIA_UZ_MIES_PR_WRZESIEN
     },
     {
       name: "PREMIA_UZ_MIES_PR_PAZDZIERNIK",
-      selector: (row) => row.bonus_u_month_proc_oct
+      selector: (row) => row.PREMIA_UZ_MIES_PR_PAZDZIERNIK
     },
     {
       name: "PREMIA_UZ_MIES_PR_LISTOPAD",
-      selector: (row) => row.bonus_u_month_proc_nav
+      selector: (row) => row.PREMIA_UZ_MIES_PR_GRUDZIEN
     },
     {
       name: "PREMIA_UZ_MIES_PR_GRUDZIEN",
-      selector: (row) => row.bonus_u_month_proc_dec
+      selector: (row) => row.PREMIA_UZ_MIES_PR_GRUDZIEN
     },
     {
       name: "PREMIA_UZ_MIES_WA_STYCZEN",
-      selector: (row) => row.bonus_u_month_val_jan
+      selector: (row) => row.PREMIA_UZ_MIES_WA_STYCZEN
     },
     {
       name: "PREMIA_UZ_MIES_WA_LUTY",
-      selector: (row) => row.bonus_u_month_val_feb
+      selector: (row) => row.PREMIA_UZ_MIES_WA_LUTY
     },
     {
       name: "PREMIA_UZ_MIES_WA_MARZEC",
-      selector: (row) => row.bonus_u_month_val_mar
+      selector: (row) => row.PREMIA_UZ_MIES_WA_MARZEC
     },
     {
       name: "PREMIA_UZ_MIES_WA_KWIECIEN",
-      selector: (row) => row.bonus_u_month_val_apr
+      selector: (row) => row.PREMIA_UZ_MIES_WA_KWIECIEN
     },
     {
       name: "PREMIA_UZ_MIES_WA_MAJ",
-      selector: (row) => row.bonus_u_month_val_mai
+      selector: (row) => row.PREMIA_UZ_MIES_WA_MAJ
     },
     {
       name: "PREMIA_UZ_MIES_WA_CZERWIEC",
-      selector: (row) => row.bonus_u_month_val_jul
+      selector: (row) => row.PREMIA_UZ_MIES_WA_CZERWIEC
     },
     {
       name: "PREMIA_UZ_MIES_WA_LIPIEC",
-      selector: (row) => row.bonus_u_month_val_jun
+      selector: (row) => row.PREMIA_UZ_MIES_WA_LIPIEC
     },
     {
       name: "PREMIA_UZ_MIES_WA_SIERPIEN",
-      selector: (row) => row.bonus_u_month_val_aug
+      selector: (row) => row.PREMIA_UZ_MIES_WA_SIERPIEN
     },
     {
       name: "PREMIA_UZ_MIES_WA_WRZESIEN",
-      selector: (row) => row.bonus_u_month_val_sep
+      selector: (row) => row.PREMIA_UZ_MIES_WA_WRZESIEN
     },
     {
       name: "PREMIA_UZ_MIES_WA_PAZDZIERNIK",
-      selector: (row) => row.bonus_u_month_val_oct
+      selector: (row) => row.PREMIA_UZ_MIES_WA_PAZDZIERNIK
     },
     {
       name: "PREMIA_UZ_MIES_WA_LISTOPAD",
-      selector: (row) => row.bonus_u_month_val_nov
+      selector: (row) => row.PREMIA_UZ_MIES_WA_LISTOPAD
     },
     {
       name: "PREMIA_UZ_MIES_WA_GRUDZIEN",
-      selector: (row) => row.bonus_u_month_val_dec
+      selector: (row) => row.PREMIA_UZ_MIES_WA_GRUDZIEN
     },
     {
       name: "PREMIA_CAL_MIES_STY",
-      selector: (row) => row.all_month_bonus_jan
+      selector: (row) => row.PREMIA_CAL_MIES_STY
     },
     {
       name: "PREMIA_CAL_MIES_LUT",
-      selector: (row) => row.all_month_bonus_feb
+      selector: (row) => row.PREMIA_CAL_MIES_LUT
     },
     {
       name: "PREMIA_CAL_MIES_MAR",
-      selector: (row) => row.all_month_bonus_mar
+      selector: (row) => row.PREMIA_CAL_MIES_MAR
     },
     {
       name: "PREMIA_CAL_MIES_KWI",
-      selector: (row) => row.all_month_bonus_apr
+      selector: (row) => row.PREMIA_CAL_MIES_KWI
     },
     {
       name: "PREMIA_CAL_MIES_MAI",
-      selector: (row) => row.all_month_bonus_mai
+      selector: (row) => row.PREMIA_CAL_MIES_MAI
     },
     {
       name: "PREMIA_CAL_MIES_CZE",
-      selector: (row) => row.all_month_bonus_jul
+      selector: (row) => row.PREMIA_CAL_MIES_CZE
     },
     {
       name: "PREMIA_CAL_MIES_LIP",
-      selector: (row) => row.all_month_bonus_jun
+      selector: (row) => row.PREMIA_CAL_MIES_LIP
     },
     {
       name: "PREMIA_CAL_MIES_SIE",
-      selector: (row) => row.all_month_bonus_aug
+      selector: (row) => row.PREMIA_CAL_MIES_SIE
     },
     {
       name: "PREMIA_CAL_MIES_WRZ",
-      selector: (row) => row.all_month_bonus_sep
+      selector: (row) => row.PREMIA_CAL_MIES_WRZ
     },
     {
       name: "PREMIA_CAL_MIES_PAZ",
-      selector: (row) => row.all_month_bonus_oct
+      selector: (row) => row.PREMIA_CAL_MIES_PAZ
     },
     {
       name: "PREMIA_CAL_MIES_LIS",
-      selector: (row) => row.all_month_bonus_nov
+      selector: (row) => row.PREMIA_CAL_MIES_LIS
     },
     {
       name: "PREMIA_CAL_MIES_GRU",
-      selector: (row) => row.all_month_bonus_dec
+      selector: (row) => row.PREMIA_UZ_MIES_WA_GRUDZIEN
     },
     {
       name: "PENSJA_CAL_MIES_STY",
-      selector: (row) => row.all_month_salary_jan
+      selector: (row) => row.PENSJA_CAL_MIES_STY
     },
     {
       name: "PENSJA_CAL_MIES_LUT",
-      selector: (row) => row.all_month_salary_feb
+      selector: (row) => row.PENSJA_CAL_MIES_LUT
     },
     {
       name: "PENSJA_CAL_MIES_MAR",
-      selector: (row) => row.all_month_salary_mar
+      selector: (row) => row.PENSJA_CAL_MIES_MAR
     },
     {
       name: "PENSJA_CAL_MIES_KWI",
-      selector: (row) => row.all_month_salary_apr
+      selector: (row) => row.PENSJA_CAL_MIES_KWI
     },
     {
       name: "PENSJA_CAL_MIES_MAI",
-      selector: (row) => row.all_month_salary_mai
+      selector: (row) => row.PENSJA_CAL_MIES_MAI
     },
     {
       name: "PENSJA_CAL_MIES_CZE",
-      selector: (row) => row.all_month_salary_jul
+      selector: (row) => row.PENSJA_CAL_MIES_CZE
     },
     {
       name: "PENSJA_CAL_MIES_LIP",
-      selector: (row) => row.all_month_salary_jun
+      selector: (row) => row.PENSJA_CAL_MIES_LIP
     },
     {
       name: "PENSJA_CAL_MIES_SIE",
-      selector: (row) => row.all_month_salary_aug
+      selector: (row) => row.PENSJA_CAL_MIES_SIE
     },
     {
       name: "PENSJA_CAL_MIES_WRZ",
-      selector: (row) => row.all_month_salary_sep
+      selector: (row) => row.PENSJA_CAL_MIES_WRZ
     },
     {
       name: "PENSJA_CAL_MIES_PAZ",
-      selector: (row) => row.all_month_salary_oct
+      selector: (row) => row.PENSJA_CAL_MIES_PAZ
     },
     {
       name: "PENSJA_CAL_MIES_LIS",
-      selector: (row) => row.all_month_salary_nov
+      selector: (row) => row.PENSJA_CAL_MIES_LIS
     },
     {
       name: "PENSJA_CAL_MIES_GRU",
-      selector: (row) => row.all_month_salary_dec
+      selector: (row) => row.PENSJA_CAL_MIES_GRU
     },
     {
       name: "PENSJA_MINIMALNA",
-      selector: (row) => row.min_salary
+      selector: (row) => row.PENSJA_MINIMALNA
     },
     {
       name: "PENSJA_MAKSYMALNA",
-      selector: (row) => row.max_salary
+      selector: (row) => row.PENSJA_MAKSYMALNA
     },
     {
       name: "PENSJA_SREDNIA",
-      selector: (row) => row.avg_salary
+      selector: (row) => row.PENSJA_SREDNIA
     },
     {
       name: "PREMIA_MINIMALNA",
-      selector: (row) => row.min_bonus
+      selector: (row) => row.PREMIA_MINIMALNA
     },
     {
       name: "PREMIA_MAKSYMALNA",
-      selector: (row) => row.max_bonus
+      selector: (row) => row.PREMIA_MAKSYMALNA
     },
     {
       name: "PREMIA_SREDNIA",
-      selector: (row) => row.avg_bonus
+      selector: (row) => row.PREMIA_SREDNIA
     },
 
 
@@ -252,7 +252,7 @@ function App() {
 
   async function fetchData(){
     setLoading(true)
-    const URL = `https://jsonplaceholder.typicode.com/todos`
+    const URL = `http://127.0.0.1:8888/api/payroll/`
 
     const res = await fetch(URL, {
       method: 'GET',

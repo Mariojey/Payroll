@@ -13,7 +13,7 @@ async function run() {
         });
 
         const result = await connection.execute(
-            `SELECT * FROM place`
+            `SELECT * FROM lista_plac`
         );
         console.log(result.rows);
     } catch (err) {

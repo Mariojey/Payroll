@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json())
 
-app.use('api/payroll', payrollRouter)
+app.use('/api/payroll', payrollRouter)
 
 app.use((err, req, res, next) => {
     console.log(err.stack);

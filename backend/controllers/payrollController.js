@@ -1,8 +1,8 @@
 const Payroll = require('../models/Payroll')
 
-exports.getAllSalaries = async(req, res, next) => {
+exports.getAllSalaries = (req, res, next) => {
     try {
-        const salaries = await Payroll.findAll();
+        const salaries = Payroll.getAll();
 
         res.status(200).json({ salaries })
     } catch (error) {

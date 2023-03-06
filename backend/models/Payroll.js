@@ -1,4 +1,5 @@
-const db = require('../config/db')
+const oracledb =require('oracledb');
+const connection = require('../config/db');
 
 class Payroll {
     constructor(
@@ -123,9 +124,10 @@ class Payroll {
         this.avg_bonus = avg_bonus;
     }
 
-    static findAll() {
+    async getAll() {
         let query = `SELECT * FROM LISTA_PLAC;`;
-        return db.execute(query)
+        const result = await connection.execute(query);
+        return result.rows;
     }
 }
 
