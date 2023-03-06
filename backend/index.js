@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const db = require('./config/db')
 
 const PORT = process.env.PORT;
 
@@ -27,6 +28,8 @@ app.use((err, req, res, next) => {
         message: "Ups! Something went wrong 🥺"
     });
 });
+
+db()
 
 app.listen(PORT, () => {
     console.log(`====================================`);
