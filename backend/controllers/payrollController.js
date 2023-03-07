@@ -139,10 +139,10 @@ exports.createEmployee = async(req, res, next) => {
         PREMIA_SREDNIA
     )VALUES(
         lista_pk.NEXTVAL,
-        ${name},
-        ${surname},
+        '${name}',
+        '${surname}',
         ${basic_salary},
-        ${motivation_bonus},
+        ${motivation_bonus.toFixed(0)},
         ${discreationary_bonus[0]},
         ${discreationary_bonus[1]},
         ${discreationary_bonus[2]},
@@ -193,10 +193,10 @@ exports.createEmployee = async(req, res, next) => {
         ${all_salary[11]},
         ${min_salary},
         ${max_salary},
-        ${avg_salary},
+        ${avg_salary.toFixed(0)},
         ${min_bonus},
         ${max_bonus},
-        ${avg_bonus}
+        ${avg_bonus.toFixed(0)}
     )
     
 
