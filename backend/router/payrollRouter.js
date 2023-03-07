@@ -11,8 +11,17 @@ const payrollController = require('../controllers/payrollController');
 
 //verion 1
 router.route('/').get(
-        payrollController.getAllSalaries
-    )
+    payrollController.getAllSalaries
+).post(
+    payrollController.createEmployee
+)
+
+
+
+
+
+
+
     /* version 2
     router.get('/', (req, res, next) => {
         oracledb.getConnection({
