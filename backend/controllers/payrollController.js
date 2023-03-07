@@ -36,14 +36,14 @@ exports.createEmployee = async(req, res, next) => {
     let discreationary_bonus_value = []
     for (let i = 0; i < 12; i++) {
         
-        discreationary_bonus_value.push(((discreationary_bonus[i] * 100) / basic_salary).toFixed(0))
+        discreationary_bonus_value.push((discreationary_bonus[i] * basic_salary / 100).toFixed(0))
         
     }
 
     let all_bonus = []
     for (let i = 0; i < 12; i++) {
         
-        all_bonus.push(motivation_bonus+discreationary_bonus_value[i])
+        all_bonus.push(parseInt(motivation_bonus)+parseInt(discreationary_bonus_value[i]))
         
     }
 
