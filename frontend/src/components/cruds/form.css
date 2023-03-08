@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid var(--white);
+}
+
+:root {
+    --black: #000;
+    --white: #fff;
+}
+
+.container {
+    background-color: var(--black);
+    color: var(--white);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h1 {
+    padding: 40px;
+}
+
+.form {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}

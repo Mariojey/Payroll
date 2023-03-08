@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import './form.css';
 
 function Create(){
     const initialState = {
@@ -44,10 +45,10 @@ function Create(){
 
 
     return(
-        <div className="container" style={{ maxWidth: "400px" }}>
+        <div className="container">
 			<h1>Dodaj pracownika</h1>
 			<hr />
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="form">
 				<div className="form-group">
 					<label>Imie</label>
 					<input
