@@ -34,8 +34,8 @@ function ListTable() {
 
   
   return (
-    <div className="App">
-      
+    <div className="tableComponent">
+        <h1>LISTA PRACOWNIKÓW</h1>
         <table className='table'>
             <thead>
                 <tr>

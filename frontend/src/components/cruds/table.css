@@ -9,7 +9,30 @@
     --green: #00a410;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
+.tableComponent {
+    display: flex;
+    flex-direction: column;
+}
+
 .editButton {
     padding: 10px;
     background-color: var(--green);
+}
+
+.table {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 2px 2px 18px -11px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 2px 2px 18px -11px rgba(255, 255, 255, 1);
+    box-shadow: 2px 2px 16px -11px rgba(255, 255, 255, 1);
+}
+
+.table tr {
+    margin-bottom: 2px;
 }
