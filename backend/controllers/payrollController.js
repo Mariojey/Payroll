@@ -244,7 +244,7 @@ exports.createEmployee = async(req, res, next) => {
 
 exports.updateEmployee = async(req, res, next) => {
 
-    let id = req.body.id;
+    let id = req.params.id;
     let basic_salary = req.body.basic_salary;
     let motivation_bonus = (basic_salary*0.1);
 
@@ -341,7 +341,7 @@ exports.updateEmployee = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const update = await connection.execute(queryUpdate);
-        res.status(200).json({save})
+        res.status(200).json({update})
     }catch(error){
         console.log(error);
         next(error)
