@@ -16,6 +16,12 @@ router.route('/').get(
     payrollController.createEmployee
 )
 
+router.route('/:id').patch(
+    payrollController.updateEmployee
+).get(
+    payrollController.getEmployeeById
+)
+
 
 
 

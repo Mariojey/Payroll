@@ -18,6 +18,27 @@ exports.getAllSalaries = async(req, res, next) => {
         next(error)
     }
 }
+
+exports.getEmployeeById = async(req, res, next) => {
+
+
+    let id = req.params.id;
+    let query = `SELECT * FROM lista_plac WHERE ID = ${id}`;
+    let connection;
+    oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+    oracledb.autoCommit = true;
+
+    try{
+        connection = await oracledb.getConnection();
+        const employee = await connection.execute(query)
+        res.status(200).json(employee.rows)
+    }catch(error){
+        console.log(error);
+        next(error)
+    }
+
+}
+
 exports.createEmployee = async(req, res, next) => {
 
     //Params
@@ -213,6 +234,113 @@ exports.createEmployee = async(req, res, next) => {
         connection = await oracledb.getConnection();
         const save = await connection.execute(querySave);
         //const addedWorker = await connection.execute(queryCheck);
+        res.status(200).json({save})
+    }catch(error){
+        console.log(error);
+        next(error)
+    }
+
+}
+
+exports.updateEmployee = async(req, res, next) => {
+
+    let id = req.body.id;
+    let basic_salary = req.body.basic_salary;
+    let motivation_bonus = (basic_salary*0.1);
+
+    let discreationary_bonus_value = []
+    discreationary_bonus_value[0] = req.body.discreationary_bonus_value_jan; 
+    discreationary_bonus_value[1] = req.body.discreationary_bonus_value_feb; 
+    discreationary_bonus_value[2] = req.body.discreationary_bonus_value_mar; 
+    discreationary_bonus_value[3] = req.body.discreationary_bonus_value_apr; 
+    discreationary_bonus_value[4] = req.body.discreationary_bonus_value_mai; 
+    discreationary_bonus_value[5] = req.body.discreationary_bonus_value_jul; 
+    discreationary_bonus_value[6] = req.body.discreationary_bonus_value_jun; 
+    discreationary_bonus_value[7] = req.body.discreationary_bonus_value_aug; 
+    discreationary_bonus_value[8] = req.body.discreationary_bonus_value_sep; 
+    discreationary_bonus_value[9] = req.body.discreationary_bonus_value_oct; 
+    discreationary_bonus_value[10] = req.body.discreationary_bonus_value_nov; 
+    discreationary_bonus_value[11] = req.body.discreationary_bonus_value_dec; 
+
+    let all_bonus = []
+    for (let i = 0; i < 12; i++) {
+        
+        all_bonus.push(parseInt(motivation_bonus)+parseInt(discreationary_bonus_value[i]))
+        
+    }
+
+    let all_salary = []
+    for (let i = 0; i < 12; i++) {
+        
+        all_salary.push(basic_salary+all_bonus[i])
+        
+    }
+
+    let min_salary = Math.min(...all_salary);
+    let max_salary = Math.max(...all_salary);
+    
+    function avg(tab){
+        let result = 0
+        for (let i = 0; i < tab.length; i++) {
+            result += tab[i]
+            
+        }
+        return result/tab.length;
+    }
+
+    let avg_salary = avg(all_salary)
+
+    let min_bonus = Math.min(...all_bonus);
+    let max_bonus = Math.max(...all_bonus);
+    let avg_bonus = avg(all_bonus);
+
+    let queryUpdate = `
+    UPDATE lista_plac
+    SET
+    IMIE = '${req.body.name}',
+    NAZWISKO = '${req.body.surname}',
+    PENSJA_ZASADNICZA = ${basic_salary},
+    PREMIA_MOTYWACYJNA = ${motivation_bonus},
+    PREMIA_CAL_MIES_STY = ${all_bonus[0]},
+    PREMIA_CAL_MIES_LUT = ${all_bonus[1]},
+    PREMIA_CAL_MIES_MAR = ${all_bonus[2]},
+    PREMIA_CAL_MIES_KWI = ${all_bonus[3]},
+    PREMIA_CAL_MIES_MAI = ${all_bonus[4]},
+    PREMIA_CAL_MIES_CZE = ${all_bonus[5]},
+    PREMIA_CAL_MIES_LIP = ${all_bonus[6]},
+    PREMIA_CAL_MIES_SIE = ${all_bonus[7]},
+    PREMIA_CAL_MIES_WRZ = ${all_bonus[8]},
+    PREMIA_CAL_MIES_PAZ = ${all_bonus[9]},
+    PREMIA_CAL_MIES_LIS = ${all_bonus[10]},
+    PREMIA_CAL_MIES_GRU = ${all_bonus[11]},
+    PENSJA_CAL_MIES_STY = ${all_salary[0]},
+    PENSJA_CAL_MIES_LUT = ${all_salary[1]},
+    PENSJA_CAL_MIES_MAR = ${all_salary[2]},
+    PENSJA_CAL_MIES_KWI = ${all_salary[3]},
+    PENSJA_CAL_MIES_MAI = ${all_salary[4]},
+    PENSJA_CAL_MIES_CZE = ${all_salary[5]},
+    PENSJA_CAL_MIES_LIP = ${all_salary[6]},
+    PENSJA_CAL_MIES_SIE = ${all_salary[7]},
+    PENSJA_CAL_MIES_WRZ = ${all_salary[8]},
+    PENSJA_CAL_MIES_PAZ = ${all_salary[9]},
+    PENSJA_CAL_MIES_LIS = ${all_salary[10]},
+    PENSJA_CAL_MIES_GRU = ${all_salary[11]},
+    PENSJA_MINIMALNA = ${min_salary},
+    PENSJA_MAKSYMALNA = ${max_salary},
+    PENSJA_SREDNIA = ${avg_salary},
+    PREMIA_MINIMALNA = ${min_bonus},
+    PREMIA_MAKSYMALNA = ${max_bonus},
+    PREMIA_SREDNIA = ${avg_bonus}
+    WHERE ID = ${id}
+    `
+
+    let connection;
+    oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+    oracledb.autoCommit = true;
+
+    try{
+        connection = await oracledb.getConnection();
+        const update = await connection.execute(queryUpdate);
         res.status(200).json({save})
     }catch(error){
         console.log(error);
