@@ -58,6 +58,7 @@ function Create(){
 						value={employee.name}
 						onChange={handleChange}
 						className="form-control"
+						placeholder="Wpisz imie pracownika..."
 					/>
 				</div>
                 <div className="form-group">
@@ -69,6 +70,7 @@ function Create(){
 						value={employee.surname}
 						onChange={handleChange}
 						className="form-control"
+						placeholder="Wpisz nazwisko pracownika..."
 					/>
 				</div>
                 <div className="form-group">
@@ -84,13 +86,13 @@ function Create(){
 				</div>
 
 				<div className="btn-group">
-					<input type="submit" value="Submit" className="btn btn-primary" />
+					<input type="submit" value="Dodaj" className="btn-submit" />
 					<button
 						type="button"
 						onClick={handleCancel}
-						className="btn btn-secondary"
+						className="btn-submit"
 					>
-						Cancel
+						Anuluj
 					</button>
 				</div>
 			</form>
