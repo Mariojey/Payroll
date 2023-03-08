@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
-
+import { Link } from "react-router-dom";
+import './table.css'
 function ListTable() {
 
 
@@ -105,7 +106,9 @@ function ListTable() {
                     data && data.map((item) => {
                         return(
                             <tr key={data.ID}>
-                                <td></td>
+                                <td><Link to={`/employee/${data.ID}/edit`} className="editButton">
+                                    Edit
+                                </Link></td>
                                 <td></td>
                                 <td>{data.IMIE}</td>
                                 <td>{data.NAZWISKO}</td>
