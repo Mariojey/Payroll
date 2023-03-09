@@ -28,10 +28,10 @@ function Edit(props){
     const navigate = useNavigate();
 
     useEffect(
-        ()=>{
+        function (){
             async function getEmployee(){
+                const URL = `http://127.0.0.1:8888/api/payroll/${id}`
                 try{
-                    const URL = `http://127.0.0.1:8888/api/payroll/${id}`
 
                     const res = await fetch(URL, {
                       method: 'GET',
@@ -48,7 +48,7 @@ function Edit(props){
                 }
             }
             getEmployee()
-        }
+        }, [props]
     );
         console.log(data);
     function handleSubmit(event){
