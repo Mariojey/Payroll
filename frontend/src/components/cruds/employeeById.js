@@ -245,7 +245,7 @@ function EmployeeCard(props){
         }]
 
     useEffect(
-        () => {
+        function () {
             async function getEmployeeById(){
                 const URL = `http://127.0.0.1:8888/api/payroll/${id}`
                 try{
@@ -259,8 +259,8 @@ function EmployeeCard(props){
                       }
                     })
                 
-                    const list = await res.json()
-                    setEmployee(list)
+                    
+                    setEmployee(res.data)
                 }catch(error){
                     console.log(error);
                 }
@@ -269,6 +269,8 @@ function EmployeeCard(props){
         },
         [props]
     )
+
+    console.log(employee);
     setLoading(false)
     createTheme('dark', {
         background: {

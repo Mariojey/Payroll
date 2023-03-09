@@ -54,8 +54,8 @@ function Edit(props){
     function handleSubmit(event){
         event.preventDefault();
         async function updateEmployee(){
+            const URL = `http://127.0.0.1:8888/api/payroll/${id}`
             try{
-                const URL = `http://127.0.0.1:8888/api/payroll/${id}`
 
                     const res = await fetch(URL, {
                       method: 'PATCH',
