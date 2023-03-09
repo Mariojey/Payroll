@@ -13,7 +13,7 @@ function App(){
         <Routes>
           <Route exact path="/" element={<ListView />} />
           <Route exact path="/create" element={<Create />} />
-          <Route exact path="/employee/:id" element={<EmployeeCard />} />
+          <Route exact path="/employee/:id/" element={<EmployeeCard />} />
           <Route exact path="/employee/" element={<ListTable />} />
         </Routes>
       </Router>

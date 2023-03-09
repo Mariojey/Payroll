@@ -36,138 +36,37 @@ function ListTable() {
   return (
     <div className="tableComponent">
         <h1>LISTA PRACOWNIKÓW</h1>
-        <table className='table'>
+        <table className="table">
             <thead>
                 <tr>
-                    <th>EDYTUJ</th>
-                    <th>USUŃ</th>
-                    <th>IMIE</th>
-                    <th>NAZWISKO</th>
-                    <th>PENSJA_ZASADNICZA</th>
-                    <th>PREMIA_MOTYWACYJNA</th>
-                    <th>PREMIA_UZ_MIES_PR_STYCZEN</th>
-                    <th>PREMIA_UZ_MIES_PR_LUTY</th>
-                    <th>PREMIA_UZ_MIES_PR_MARZEC</th>
-                    <th>PREMIA_UZ_MIES_PR_KWIECIEN</th>
-                    <th>PREMIA_UZ_MIES_PR_MAJ</th>
-                    <th>PREMIA_UZ_MIES_PR_CZERWIEC</th>
-                    <th>PREMIA_UZ_MIES_PR_LIPIEC</th>
-                    <th>PREMIA_UZ_MIES_PR_SIERPIEN</th>
-                    <th>PREMIA_UZ_MIES_PR_WRZESIEN</th>
-                    <th>PREMIA_UZ_MIES_PR_PAZDZIERNIK</th>
-                    <th>PREMIA_UZ_MIES_PR_LISTOPAD</th>
-                    <th>PREMIA_UZ_MIES_PR_GRUDZIEN</th>
-                    <th>PREMIA_UZ_MIES_WA_STYCZEN</th>
-                    <th>PREMIA_UZ_MIES_WA_LUTY</th>
-                    <th>PREMIA_UZ_MIES_WA_MARZEC</th>
-                    <th>PREMIA_UZ_MIES_WA_KWIECIEN</th>
-                    <th>PREMIA_UZ_MIES_WA_MAJ</th>
-                    <th>PREMIA_UZ_MIES_WA_CZERWIEC</th>
-                    <th>PREMIA_UZ_MIES_WA_LIPIEC</th>
-                    <th>PREMIA_UZ_MIES_WA_SIERPIEN</th>
-                    <th>PREMIA_UZ_MIES_WA_WRZESIEN</th>
-                    <th>PREMIA_UZ_MIES_WA_PAZDZIERNIK</th>
-                    <th>PREMIA_UZ_MIES_WA_LISTOPAD</th>
-                    <th>PREMIA_UZ_MIES_WA_GRUDZIEN</th>
-                    <th>PREMIA_CAL_MIES_STY</th>
-                    <th>PREMIA_CAL_MIES_LUT</th>
-                    <th>PREMIA_CAL_MIES_MAR</th>
-                    <th>PREMIA_CAL_MIES_KWI</th>
-                    <th>PREMIA_CAL_MIES_MAI</th>
-                    <th>PREMIA_CAL_MIES_CZE</th>
-                    <th>PREMIA_CAL_MIES_LIP</th>
-                    <th>PREMIA_CAL_MIES_SIE</th>
-                    <th>PREMIA_CAL_MIES_WRZ</th>
-                    <th>PREMIA_CAL_MIES_PAZ</th>
-                    <th>PREMIA_CAL_MIES_LIS</th>
-                    <th>PREMIA_CAL_MIES_GRU</th>
-                    <th>PENSJA_CAL_MIES_STY</th>
-                    <th>PENSJA_CAL_MIES_LUT</th>
-                    <th>PENSJA_CAL_MIES_MAR</th>
-                    <th>PENSJA_CAL_MIES_KWI</th>
-                    <th>PENSJA_CAL_MIES_MAI</th>
-                    <th>PENSJA_CAL_MIES_CZE</th>
-                    <th>PENSJA_CAL_MIES_LIP</th>
-                    <th>PENSJA_CAL_MIES_SIE</th>
-                    <th>PENSJA_CAL_MIES_WRZ</th>
-                    <th>PENSJA_CAL_MIES_PAZ</th>
-                    <th>PENSJA_CAL_MIES_LIS</th>
-                    <th>PENSJA_CAL_MIES_GRU</th>
-                    <th>PENSJA_MINIMALNA</th>
-                    <th>PENSJA_MAKSYMALNA</th>
-                    <th>PENSJA_SREDNIA</th>
-                    <th>PREMIA_MINIMALNA</th>
-                    <th>PREMIA_MAKSYMALNA</th>
-                    <th>PREMIA_SREDNIA</th>
+                    <th className='tableRow'>EDYTUJ</th>
+                    <th className='tableRow'>USUŃ</th>
+                    <th className='tableRowName'>IMIE</th>
+                    <th className='tableRowName'>NAZWISKO</th>
+                    <th className="tableRowSalary">PENSJA_ZASADNICZA</th>
+                    <th className="tableRowSalary">PREMIA_MOTYWACYJNA</th>
+                    <th className='tableRow'>POKAŻ</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 {
                     data && data.map((item) => {
                         return(
-                            <tr key={data.ID}>
-                                <td><Link to={`/employee/${data.ID}/edit`} className="editButton">
+                            <tr key={item.ID}>
+                                <td className='tableRow'><Link to={`/employee/${item.ID}/edit`} className="editButton">
                                     Edit
                                 </Link></td>
-                                <td></td>
-                                <td>{data.IMIE}</td>
-                                <td>{data.NAZWISKO}</td>
-                                <td>{data.PENSJA_ZASADNICZA}</td>
-                                <td>{data.PREMIA_MOTYWACYJNA}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_STYCZEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_LUTY}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_MARZEC}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_KWIECIEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_MAJ}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_CZERWIEC}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_LIPIEC}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_SIERPIEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_WRZESIEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_PAZDZIERNIK}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_LISTOPAD}</td>
-                                <td>{data.PREMIA_UZ_MIES_PR_GRUDZIEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_STYCZEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_LUTY}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_MARZEC}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_KWIECIEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_MAJ}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_CZERWIEC}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_LIPIEC}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_SIERPIEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_WRZESIEN}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_PAZDZIERNIK}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_LISTOPAD}</td>
-                                <td>{data.PREMIA_UZ_MIES_WA_GRUDZIEN}</td>
-                                <td>{data.PREMIA_CAL_MIES_STY}</td>
-                                <td>{data.PREMIA_CAL_MIES_LUT}</td>
-                                <td>{data.PREMIA_CAL_MIES_MAR}</td>
-                                <td>{data.PREMIA_CAL_MIES_KWI}</td>
-                                <td>{data.PREMIA_CAL_MIES_MAI}</td>
-                                <td>{data.PREMIA_CAL_MIES_CZE}</td>
-                                <td>{data.PREMIA_CAL_MIES_LIP}</td>
-                                <td>{data.PREMIA_CAL_MIES_SIE}</td>
-                                <td>{data.PREMIA_CAL_MIES_WRZ}</td>
-                                <td>{data.PREMIA_CAL_MIES_PAZ}</td>
-                                <td>{data.PREMIA_CAL_MIES_LIS}</td>
-                                <td>{data.PREMIA_CAL_MIES_GRU}</td>
-                                <td>{data.PENSJA_CAL_MIES_STY}</td>
-                                <td>{data.PENSJA_CAL_MIES_LUT}</td>
-                                <td>{data.PENSJA_CAL_MIES_MAR}</td>
-                                <td>{data.PENSJA_CAL_MIES_KWI}</td>
-                                <td>{data.PENSJA_CAL_MIES_MAI}</td>
-                                <td>{data.PENSJA_CAL_MIES_CZE}</td>
-                                <td>{data.PENSJA_CAL_MIES_LIP}</td>
-                                <td>{data.PENSJA_CAL_MIES_SIE}</td>
-                                <td>{data.PENSJA_CAL_MIES_WRZ}</td>
-                                <td>{data.PENSJA_CAL_MIES_PAZ}</td>
-                                <td>{data.PENSJA_CAL_MIES_LIS}</td>
-                                <td>{data.PENSJA_CAL_MIES_GRU}</td>
-                                <td>{data.PENSJA_MINIMALNA}</td>
-                                <td>{data.PENSJA_MAKSYMALNA}</td>
-                                <td>{data.PENSJA_SREDNIA}</td>
-                                <td>{data.PREMIA_MINIMALNA}</td>
-                                <td>{data.PREMIA_MAKSYMALNA}</td>
-                                <td>{data.PREMIA_SREDNIA}</td>
+                                <td className='tableRow'><Link to={`/employee/${item.ID}/delete`} className="deleteButton">
+                                    Delete
+                                </Link></td>
+                                <td className='tableRowName'>{item.IMIE}</td>
+                                <td className='tableRowName'>{item.NAZWISKO}</td>
+                                <td className="tableRowSalary">{item.PENSJA_ZASADNICZA}</td>
+                                <td className="tableRowSalary">{item.PREMIA_MOTYWACYJNA}</td>
+                                <td className='tableRow'><Link to={`/employee/${item.ID}/`} className="showButton">
+                                    Pokaż
+                                </Link></td>
                             </tr>
                         )
                     })

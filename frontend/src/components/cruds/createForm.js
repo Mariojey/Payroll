@@ -86,7 +86,7 @@ function Create(){
 				</div>
 
 				<div className="btn-group">
-					<input type="submit" value="Dodaj" className="btn-submit" />
+					<input type="submit" value="Dodaj" className="btn-submit" onClick={handleCancel}/>
 					<button
 						type="button"
 						onClick={handleCancel}

@@ -2,11 +2,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 :root {
     --black: #000;
     --green: #00a410;
+    --white: #fff;
+    --red: #ff0000;
+    --dogblue: #2c2cce;
 }
 
 h1 {
@@ -16,15 +20,35 @@ h1 {
 .tableComponent {
     display: flex;
     flex-direction: column;
+    background-color: var(--black);
+    color: var(--white);
+    width: auto;
+    min-height: 100vh;
 }
 
 .editButton {
     padding: 10px;
     background-color: var(--green);
+    border-radius: 20px;
+    color: var(--white);
+    text-decoration: none;
 }
-
+.deleteButton {
+    padding: 10px;
+    background-color: var(--red);
+    border-radius: 20px;
+    color: var(--white);
+    text-decoration: none;
+}
+.showButton {
+    padding: 10px;
+    background-color: var(--dogblue);
+    border-radius: 20px;
+    color: var(--white);
+    text-decoration: none;
+}
 .table {
-    width: 90%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -32,7 +56,19 @@ h1 {
     -moz-box-shadow: 2px 2px 18px -11px rgba(255, 255, 255, 1);
     box-shadow: 2px 2px 16px -11px rgba(255, 255, 255, 1);
 }
-
-.table tr {
-    margin-bottom: 2px;
+.table thead{
+    min-height: 40px;
+    border-bottom: 1px solid var(--white);
+}
+.tableRow{
+    min-width: 100px;
+    text-align: center;
+}
+.tableRowName{
+    min-width: 200px;
+    padding: 20px;
+}
+.tableRowSalary{
+    min-width: 300px;
+    text-align: center;
 }
