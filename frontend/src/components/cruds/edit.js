@@ -4,12 +4,25 @@ import './form.css'
 
 function Edit(props){
     const initialState = {
-        name: '',
-        surname: '',
-        basic_salary: 0
+        ID: 0,
+        IMIE: '',
+        NAZWISKO: '',
+        PENSJA_ZASADNICZA: 0,
+        PREMIA_UZ_MIES_PR_STYCZEN:0,
+        PREMIA_UZ_MIES_PR_LUTY:0,
+        PREMIA_UZ_MIES_PR_MARZEC:0,
+        PREMIA_UZ_MIES_PR_KWIECIEN:0,
+        PREMIA_UZ_MIES_PR_MAJ:0,
+        PREMIA_UZ_MIES_PR_CZERWIEC:0,
+        PREMIA_UZ_MIES_PR_LIPIEC:0,
+        PREMIA_UZ_MIES_PR_SIERPIEN:0,
+        PREMIA_UZ_MIES_PR_WRZESIEN:0,
+        PREMIA_UZ_MIES_PR_PAZDZIERNIK:0,
+        PREMIA_UZ_MIES_PR_LISTOPAD:0,
+        PREMIA_UZ_MIES_PR_GRUDZIEN:0
     }
 
-    const [data, setData] = useState(initialState);
+    const [data, setData] = useState({});
 
     const {id} = useParams();
     const navigate = useNavigate();
@@ -37,7 +50,7 @@ function Edit(props){
             getEmployee()
         }
     );
-
+        console.log(data);
     function handleSubmit(event){
         event.preventDefault();
         async function updateEmployee(){
@@ -76,10 +89,10 @@ function Edit(props){
 				<div className="form-group">
 					<label>Imie</label>
 					<input
-						name="name"
+						name="IMIE"
 						type="text"
 						required
-						value={data.name}
+						value={data.IMIE}
 						onChange={handleChange}
 						className="form-control"
 					/>
@@ -87,10 +100,10 @@ function Edit(props){
                 <div className="form-group">
 					<label>Nazwisko</label>
 					<input
-						name="surname"
+						name="NAZWISKO"
 						type="text"
 						required
-						value={data.surname}
+						value={data.NAZWISKO}
 						onChange={handleChange}
 						className="form-control"
 					/>
@@ -98,10 +111,10 @@ function Edit(props){
                 <div className="form-group">
 					<label>Pensja Zasadnicza</label>
 					<input
-						name="basic_salary"
+						name="PENSJA_ZASADNICZA"
 						type="number"
 						required
-						value={data.basic_salary}
+						value={data.PENSJA_ZASADNICZA}
 						onChange={handleChange}
 						className="form-control"
 					/>

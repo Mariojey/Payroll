@@ -245,22 +245,22 @@ exports.createEmployee = async(req, res, next) => {
 exports.updateEmployee = async(req, res, next) => {
 
     let id = req.params.id;
-    let basic_salary = req.body.basic_salary;
+    let basic_salary = req.body.PENSJA_ZASADNICZA;
     let motivation_bonus = (basic_salary*0.1);
 
     let discreationary_bonus_value = []
-    discreationary_bonus_value[0] = req.body.discreationary_bonus_value_jan; 
-    discreationary_bonus_value[1] = req.body.discreationary_bonus_value_feb; 
-    discreationary_bonus_value[2] = req.body.discreationary_bonus_value_mar; 
-    discreationary_bonus_value[3] = req.body.discreationary_bonus_value_apr; 
-    discreationary_bonus_value[4] = req.body.discreationary_bonus_value_mai; 
-    discreationary_bonus_value[5] = req.body.discreationary_bonus_value_jul; 
-    discreationary_bonus_value[6] = req.body.discreationary_bonus_value_jun; 
-    discreationary_bonus_value[7] = req.body.discreationary_bonus_value_aug; 
-    discreationary_bonus_value[8] = req.body.discreationary_bonus_value_sep; 
-    discreationary_bonus_value[9] = req.body.discreationary_bonus_value_oct; 
-    discreationary_bonus_value[10] = req.body.discreationary_bonus_value_nov; 
-    discreationary_bonus_value[11] = req.body.discreationary_bonus_value_dec; 
+    discreationary_bonus_value[0] = req.body.PREMIA_UZ_MIES_PR_STYCZEN; 
+    discreationary_bonus_value[1] = req.body.PREMIA_UZ_MIES_PR_LUTY; 
+    discreationary_bonus_value[2] = req.body.PREMIA_UZ_MIES_PR_MARZEC; 
+    discreationary_bonus_value[3] = req.body.PREMIA_UZ_MIES_PR_KWIECIE; 
+    discreationary_bonus_value[4] = req.body.PREMIA_UZ_MIES_PR_MAJ; 
+    discreationary_bonus_value[5] = req.body.PREMIA_UZ_MIES_PR_CZERWIEC; 
+    discreationary_bonus_value[6] = req.body.PREMIA_UZ_MIES_PR_LIPIEC; 
+    discreationary_bonus_value[7] = req.body.PREMIA_UZ_MIES_PR_SIERPIEN; 
+    discreationary_bonus_value[8] = req.body.PREMIA_UZ_MIES_PR_WRZESIEN; 
+    discreationary_bonus_value[9] = req.body.PREMIA_UZ_MIES_PR_PAZDZIERNIK; 
+    discreationary_bonus_value[10] = req.body.PREMIA_UZ_MIES_PR_LISTOPAD; 
+    discreationary_bonus_value[11] = req.body.PREMIA_UZ_MIES_PR_GRUDZIEN; 
 
     let all_bonus = []
     for (let i = 0; i < 12; i++) {
@@ -295,10 +295,10 @@ exports.updateEmployee = async(req, res, next) => {
     let avg_bonus = avg(all_bonus);
 
     let queryUpdate = `
-    UPDATE lista_plac
+    UPDATE LISTA_PLAC
     SET
-    IMIE = '${req.body.name}',
-    NAZWISKO = '${req.body.surname}',
+    IMIE = '${req.body.IMIE}',
+    NAZWISKO = '${req.body.NAZWISKO}',
     PENSJA_ZASADNICZA = ${basic_salary},
     PREMIA_MOTYWACYJNA = ${motivation_bonus},
     PREMIA_CAL_MIES_STY = ${all_bonus[0]},

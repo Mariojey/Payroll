@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
-import './table.css'
+import './table.css';
+
+
 function ListTable() {
 
 
