@@ -297,6 +297,7 @@ exports.updateEmployee = async(req, res, next) => {
     let queryUpdate = `
     UPDATE LISTA_PLAC
     SET
+    LOCKED=0, LOCKGRANTED=null, LOCKEDBY=null,
     IMIE = '${req.body.IMIE}',
     NAZWISKO = '${req.body.NAZWISKO}',
     PENSJA_ZASADNICZA = ${basic_salary},

@@ -258,9 +258,10 @@ function EmployeeCard(props){
                           'Content-Type': 'application/json'
                       }
                     })
-                
                     
-                    setEmployee(res.data)
+                    const list = await res.json()
+
+                    setEmployee(list[0])
                 }catch(error){
                     console.log(error);
                 }

@@ -42,7 +42,7 @@ function Edit(props){
                     })
                     const list = await res.json()
 
-                    setData(list)
+                    setData(list[0])
                 }catch(error){
                     console.log(error);
                 }
@@ -50,7 +50,7 @@ function Edit(props){
             getEmployee()
         }, [props]
     );
-        console.log(data);
+       
     function handleSubmit(event){
         event.preventDefault();
         async function updateEmployee(){
@@ -65,13 +65,14 @@ function Edit(props){
                       },
                       body: JSON.stringify(data)
                     })
-                    navigate(`/employee/${data.id}`);
+                    navigate(`/employee/`);
             }catch(error){
                 console.log(error);
             }
         }
         updateEmployee()
     }
+    console.log(data);
 
     function handleChange(event){
         setData({...data, [event.target.name]: event.target.value});
