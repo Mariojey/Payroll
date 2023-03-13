@@ -26,7 +26,7 @@ function Create(){
                     },
                     body: JSON.stringify(employee)
                   })
-                  navigate(`/payroll/${res.ID}`)
+                  navigate(`/payroll/`)
               
             }catch(error){
                 console.log(error);

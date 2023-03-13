@@ -8,6 +8,7 @@ const cors = require('cors');
 const PORT = process.env.PORT;
 
 const payrollRouter = require('./router/payrollRouter')
+const loginRouter = require('./router/loginRouter')
 
 app.use(cors());
 app.use(bodyParser.urlencoded({
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 app.use('/api/payroll', payrollRouter)
+app.use('/api/login', loginRouter)
 
 app.use((err, req, res, next) => {
     console.log(err.stack);

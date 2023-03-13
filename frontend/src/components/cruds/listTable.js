@@ -56,11 +56,11 @@ function ListTable() {
                     data && data.map((item) => {
                         return(
                             <tr key={item.ID}>
-                                <td className='tableRow'><Link to={`/employee/${item.ID}/edit`} className="editButton">
-                                    Edit
+                                <td className='tableRow'><Link to={`/employee/edit/${item.ID}/`} className="editButton">
+                                    Edytuj
                                 </Link></td>
                                 <td className='tableRow'><Link to={`/employee/${item.ID}/delete`} className="deleteButton">
-                                    Delete
+                                    Usuń
                                 </Link></td>
                                 <td className='tableRowName'>{item.IMIE}</td>
                                 <td className='tableRowName'>{item.NAZWISKO}</td>

@@ -15,9 +15,9 @@ function App(){
         <Routes>
           <Route exact path="/" element={<ListView />} />
           <Route exact path="/create" element={<Create />} />
-          <Route exact path="/employee/:id" element={<EmployeeCard />} />
+          <Route exact path="/employee/:id/" element={<EmployeeCard />} />
           <Route exact path="/employee" element={<ListTable />} />
-          <Route exact path="/employee/:id/edit" element={<Edit />} />
+          <Route exact path="/employee/edit/:id" element={<Edit />} />
         </Routes>
       </Router>
     </div>

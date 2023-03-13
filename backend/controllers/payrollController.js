@@ -71,7 +71,7 @@ exports.createEmployee = async(req, res, next) => {
     let all_salary = []
     for (let i = 0; i < 12; i++) {
         
-        all_salary.push(basic_salary+all_bonus[i])
+        all_salary.push(parseInt(basic_salary)+parseInt(all_bonus[i]))
         
     }
 
