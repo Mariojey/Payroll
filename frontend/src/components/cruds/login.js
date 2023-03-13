@@ -7,13 +7,52 @@ function Login(){
         password: ''
     }
     const [data, setData] = useState(initialState)
+    const [message, setMessage] = useState(` `)
 
     const navigate = useNavigate();
+
 
     function handleSubmit(event){
         event.preventDefault()
 
-        
+        async function checkData(){
+            const URL = `http://127.0.0.1:8888/api/login/user`;
+            try{
+                const res = await fetch(URL, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                if(res){
+                    navigate(`/employee/`)
+                }else{
+                    const URL = `http://127.0.0.1:8888/api/login/user`;
+                    try{
+                        const res = await fetch(URL, {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        })
+                        if(res){
+                            navigate(`/employee/`)
+                        }else{
+                            setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
+                        }
+                    }catch(error){
+                        console.log(error);
+                    }
+                }
+            }catch(error){
+                console.log(error);
+            }
+        }
+        checkData()
     }
 
     function handleChange(event){
@@ -51,15 +90,10 @@ function Login(){
 
 				<div className="btn-group">
 					<input type="submit" value="Dodaj" className="btn-submit"/>
-					<button
-						type="button"
-						onClick={handleCancel}
-						className="btn-submit"
-					>
-						Anuluj
-					</button>
+
 				</div>
 			</form>
+            <p>{message}</p>
         </div>
     )
 }

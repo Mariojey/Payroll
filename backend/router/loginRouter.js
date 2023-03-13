@@ -10,5 +10,11 @@ router.route('/users').get(
 router.route('/user').post(
     loginController.getUserByEmail
 )
+router.route('/admins').get(
+    loginController.getAllAdmins
+)
+router.route('/admin').post(
+    loginController.getAdminByEmail
+)
 
 module.exports = router
