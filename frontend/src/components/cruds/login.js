@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import './login.css'
 
 function Login(){
     const initialState = {
@@ -26,7 +27,7 @@ function Login(){
                     },
                     body: JSON.stringify(data)
                 })
-                if(res){
+                if(res.status === 'OK'){
                     navigate(`/employee/`)
                 }else{
                     const URL = `http://127.0.0.1:8888/api/login/user`;
@@ -39,7 +40,7 @@ function Login(){
                             },
                             body: JSON.stringify(data)
                         })
-                        if(res){
+                        if(res.status === 'OK'){
                             navigate(`/employee/`)
                         }else{
                             setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
@@ -89,7 +90,7 @@ function Login(){
 
 
 				<div className="btn-group">
-					<input type="submit" value="Dodaj" className="btn-submit"/>
+					<input type="submit" value="Zaloguj" className="btn-submit"/>
 
 				</div>
 			</form>

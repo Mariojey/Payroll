@@ -6,6 +6,7 @@ import EmployeeCard from "./components/cruds/employeeById";
 import ListTable from "./components/cruds/listTable";
 import Edit from "./components/cruds/edit";
 import Navbar from "./components/common/Navbar";
+import Login from "./components/cruds/login";
 function App(){
 
   return(
@@ -18,6 +19,7 @@ function App(){
           <Route exact path="/employee/:id/" element={<EmployeeCard />} />
           <Route exact path="/employee" element={<ListTable />} />
           <Route exact path="/employee/edit/:id" element={<Edit />} />
+          <Route exact path="/login/" element={<Login />} />
         </Routes>
       </Router>
     </div>

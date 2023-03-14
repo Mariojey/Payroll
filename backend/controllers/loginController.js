@@ -49,7 +49,7 @@ exports.getUserByEmail = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const user = await connection.execute(query);
-        res.status(200).json(user.rows)
+        res.status(200).json({status: 'OK', user})
     }catch(error){
         console.log(error);
         next(error)
@@ -72,7 +72,7 @@ exports.getAdminByEmail = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const admin = await connection.execute(query);
-        res.status(200).json(admin.rows)
+        res.status(200).json({status: 'OK', admin})
     }catch(error){
         console.log(error);
         next(error)
