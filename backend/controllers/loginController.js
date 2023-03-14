@@ -26,6 +26,7 @@ exports.getAllAdmins = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const admins = await connection.execute(query);
+        res.status(200).json(admins.rows)
     }catch(error){
         console.log(error);
         next(error)
@@ -49,7 +50,11 @@ exports.getUserByEmail = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const user = await connection.execute(query);
-        res.status(200).json({status: 'OK', user})
+        if((user.rows).length != 0){
+            res.status(200).json({status: 'OK', user})
+        }else{
+            res.status(200).json({status: 'ERROR', user})
+        }
     }catch(error){
         console.log(error);
         next(error)
@@ -72,7 +77,11 @@ exports.getAdminByEmail = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const admin = await connection.execute(query);
-        res.status(200).json({status: 'OK', admin})
+        if((user.rows).length != 0){
+            res.status(200).json({status: 'OK', admin})
+        }else{
+            res.status(200).json({status: 'ERROR', admin})
+        }
     }catch(error){
         console.log(error);
         next(error)
