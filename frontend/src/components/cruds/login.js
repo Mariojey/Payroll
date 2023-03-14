@@ -44,6 +44,7 @@ function Login(){
                             navigate(`/employee/`)
                         }else{
                             setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
+                            console.log(res.status);
                         }
                     }catch(error){
                         console.log(error);

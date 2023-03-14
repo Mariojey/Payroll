@@ -77,7 +77,7 @@ exports.getAdminByEmail = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const admin = await connection.execute(query);
-        if((user.rows).length != 0){
+        if((admin.rows).length != 0){
             res.status(200).json({status: 'OK', admin})
         }else{
             res.status(200).json({status: 'ERROR', admin})
