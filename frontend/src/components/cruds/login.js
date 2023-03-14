@@ -41,7 +41,8 @@ function Login(){
                             body: JSON.stringify(data)
                         })
                         if(res.status === 'OK'){
-                            navigate(`/employee/`)
+                            const userId = res.user.EMPLOYEE_ID;
+                            navigate(`/employee/${userId}`)
                         }else{
                             setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
                             console.log(res.status);
