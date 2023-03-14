@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../common/Navbar";
 import './form.css';
 
 function Create(){
@@ -45,6 +46,10 @@ function Create(){
 
 
     return(
+		<div className="App">
+
+		<Navbar />
+
         <div className="container">
 			<h1>Dodaj pracownika</h1>
 			<hr />
@@ -96,6 +101,7 @@ function Create(){
 					</button>
 				</div>
 			</form>
+		</div>
 		</div>
     )
 }

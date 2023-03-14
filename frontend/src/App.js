@@ -12,7 +12,6 @@ function App(){
   return(
     <div className="App">
       <Router>
-        <Navbar />
         <Routes>
           <Route exact path="/" element={<ListView />} />
           <Route exact path="/create" element={<Create />} />

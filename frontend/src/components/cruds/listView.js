@@ -1,5 +1,6 @@
 import DataTable, {createTheme} from 'react-data-table-component';
 import {useState, useEffect} from 'react';
+import Navbar from '../common/Navbar';
 
 function ListView() {
 
@@ -278,6 +279,7 @@ function ListView() {
   });
   return (
     <div className="App">
+      <Navbar />
       <DataTable
         title="Lista Plac"
         columns={columns}

@@ -17,7 +17,7 @@ function Login(){
         event.preventDefault()
 
         async function checkData(){
-            const URL = `http://127.0.0.1:8888/api/login/user`;
+            const URL = `http://127.0.0.1:8888/api/login/admin`;
             try{
                 const res = await fetch(URL, {
                     method: 'POST',
@@ -55,7 +55,7 @@ function Login(){
         }
         checkData()
     }
-
+    console.log(data);
     function handleChange(event){
         setData({...data, [event.target.name]: event.target.value});
     }
@@ -68,10 +68,10 @@ function Login(){
 				<div className="form-group">
 					<label>Email</label>
 					<input
-						name="EMAIL"
+						name="email"
 						type="email"
 						required
-						value={data.login}
+						value={data.email}
 						onChange={handleChange}
 						className="form-control"
 					/>
@@ -79,7 +79,7 @@ function Login(){
                 <div className="form-group">
 					<label>Hasło</label>
 					<input
-						name="PASSWORD"
+						name="password"
 						type="password"
 						required
 						value={data.password}

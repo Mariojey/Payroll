@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Navbar from "../common/Navbar";
 import './form.css'
 
 function Edit(props){
@@ -126,6 +127,10 @@ function Edit(props){
     }
 
     return(
+        <div className="App">
+
+        <Navbar />
+
         <div className="container">
 			<h1>Edytuj paracownika</h1>
 			<hr />
@@ -176,6 +181,7 @@ function Edit(props){
 				</div>
 			</form>
 		</div>
+        </div>
     )
 }
 
