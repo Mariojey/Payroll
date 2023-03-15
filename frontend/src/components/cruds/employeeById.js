@@ -312,17 +312,17 @@ function EmployeeCard(props){
                 try{
                     
 
-                    const res = await fetch(URL, {
+                    await fetch(URL, {
                       method: 'GET',
                       headers: {
                           'Accept': 'application/json',
                           'Content-Type': 'application/json'
                       }
+                    }).then(res => res.json())
+                    .then(data => {
+                      setEmployee(data[0])
                     })
                     
-                    const list = await res.json()
-
-                    setEmployee(list[0])
                 }catch(error){
                     console.log(error);
                 }
