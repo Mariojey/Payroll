@@ -19,38 +19,46 @@ function Login(){
         async function checkData(){
             const URL = `http://127.0.0.1:8888/api/login/admin`;
             try{
-                const res = await fetch(URL, {
+                await fetch(URL, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)
-                })
-                if(res.status === 'OK'){
-                    navigate(`/employee/`)
-                }else{
-                    const URL = `http://127.0.0.1:8888/api/login/user`;
-                    try{
-                        const res = await fetch(URL, {
-                            method: 'POST',
-                            headers: {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(data)
-                        })
-                        if(res.status === 'OK'){
-                            const userId = res.user.EMPLOYEE_ID;
-                            navigate(`/employee/${userId}`)
-                        }else{
-                            setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
-                            console.log(res.status);
+                }).then(res => res.json())
+                .then(res => {
+                    if(res.status === 'OK'){
+                        navigate(`/employee/`)
+                    }else{
+                        const URL = `http://127.0.0.1:8888/api/login/user`;
+                        try{
+                            fetch(URL, {
+                                method: 'POST',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data)
+                            }).then(res => res.json())
+                            .then(res => {
+                                if(res.status === 'OK'){
+                                    const userId = res.user.rows[0].EMPLOYEE_ID;
+                                    console.log(userId);
+                                    console.log(res);
+                                    navigate(`/employee/${userId}`)
+                                }else{
+                                    setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
+                                    console.log(res.status);
+                                }
+                            })
+                            
+                        }catch(error){
+                            console.log(error);
                         }
-                    }catch(error){
-                        console.log(error);
                     }
-                }
+                })
+                
             }catch(error){
                 console.log(error);
             }
