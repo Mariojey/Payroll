@@ -77,10 +77,10 @@ exports.getAdminByEmail = async(req, res, next) => {
     try{
         connection = await oracledb.getConnection();
         const admin = await connection.execute(query);
-        if((admin.rows).length != 0){
+        if((admin.rows).length > 0){
             res.status(200).json({status: 'OK', admin, role: 'ADMIN'})
         }else{
-            res.status(200).json({status: 'ERROR', admin})
+            res.status(200).json({status: 'NOT FOUND', admin})
         }
     }catch(error){
         console.log(error);

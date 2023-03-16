@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const PORT = process.env.PORT;
 
@@ -11,11 +13,24 @@ const payrollRouter = require('./router/payrollRouter')
 const loginRouter = require('./router/loginRouter')
 
 app.use(cors());
+app.use(cookieParser)
 app.use(bodyParser.urlencoded({
     extended: false
 }))
 
 app.use(bodyParser.json())
+
+app.use(
+    session({
+        key: "userId",
+        secret: "showMeList",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            expires: 60 * 60 * 24
+        },
+    })
+);
 
 app.use('/api/payroll', payrollRouter)
 app.use('/api/login', loginRouter)
