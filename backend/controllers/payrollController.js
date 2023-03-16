@@ -1,5 +1,4 @@
 //const Payroll = require('../models/Payroll')
-const db = require('../config/db')
 const oracledb = require('oracledb');
 
 exports.getAllSalaries = async(req, res, next) => {
@@ -28,11 +27,11 @@ exports.getEmployeeById = async(req, res, next) => {
     oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
     oracledb.autoCommit = true;
 
-    try{
+    try {
         connection = await oracledb.getConnection();
         const employee = await connection.execute(query)
         res.status(200).json(employee.rows)
-    }catch(error){
+    } catch (error) {
         console.log(error);
         next(error)
     }
@@ -46,45 +45,45 @@ exports.createEmployee = async(req, res, next) => {
     let name = req.body.name;
     let surname = req.body.surname;
     let basic_salary = req.body.basic_salary;
-    let motivation_bonus = (basic_salary*0.1)
+    let motivation_bonus = (basic_salary * 0.1)
 
     let discreationary_bonus = []
     for (let i = 0; i < 12; i++) {
-        discreationary_bonus.push((Math.random()*10).toFixed(0))
-        
+        discreationary_bonus.push((Math.random() * 10).toFixed(0))
+
     }
 
     let discreationary_bonus_value = []
     for (let i = 0; i < 12; i++) {
-        
+
         discreationary_bonus_value.push((discreationary_bonus[i] * basic_salary / 100).toFixed(0))
-        
+
     }
 
     let all_bonus = []
     for (let i = 0; i < 12; i++) {
-        
-        all_bonus.push(parseInt(motivation_bonus)+parseInt(discreationary_bonus_value[i]))
-        
+
+        all_bonus.push(parseInt(motivation_bonus) + parseInt(discreationary_bonus_value[i]))
+
     }
 
     let all_salary = []
     for (let i = 0; i < 12; i++) {
-        
-        all_salary.push(parseInt(basic_salary)+parseInt(all_bonus[i]))
-        
+
+        all_salary.push(parseInt(basic_salary) + parseInt(all_bonus[i]))
+
     }
 
     let min_salary = Math.min(...all_salary);
     let max_salary = Math.max(...all_salary);
-    
-    function avg(tab){
+
+    function avg(tab) {
         let result = 0
         for (let i = 0; i < tab.length; i++) {
             result += tab[i]
-            
+
         }
-        return result/tab.length;
+        return result / tab.length;
     }
 
     let avg_salary = avg(all_salary)
@@ -222,7 +221,7 @@ exports.createEmployee = async(req, res, next) => {
     
 
     `;
-    
+
     let queryCheck = `
         SELECT * FROM lista_plac WHERE lista_plac.ID = lista_pk.NEXTVAL - 1
     `;
@@ -230,12 +229,12 @@ exports.createEmployee = async(req, res, next) => {
     oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
     oracledb.autoCommit = true;
 
-    try{
+    try {
         connection = await oracledb.getConnection();
         const save = await connection.execute(querySave);
         //const addedWorker = await connection.execute(queryCheck);
-        res.status(200).json({save})
-    }catch(error){
+        res.status(200).json({ save })
+    } catch (error) {
         console.log(error);
         next(error)
     }
@@ -246,46 +245,46 @@ exports.updateEmployee = async(req, res, next) => {
 
     let id = req.params.id;
     let basic_salary = req.body.PENSJA_ZASADNICZA;
-    let motivation_bonus = (basic_salary*0.1);
+    let motivation_bonus = (basic_salary * 0.1);
 
     let discreationary_bonus_value = []
-    discreationary_bonus_value[0] = req.body.PREMIA_UZ_MIES_PR_STYCZEN; 
-    discreationary_bonus_value[1] = req.body.PREMIA_UZ_MIES_PR_LUTY; 
-    discreationary_bonus_value[2] = req.body.PREMIA_UZ_MIES_PR_MARZEC; 
-    discreationary_bonus_value[3] = req.body.PREMIA_UZ_MIES_PR_KWIECIE; 
-    discreationary_bonus_value[4] = req.body.PREMIA_UZ_MIES_PR_MAJ; 
-    discreationary_bonus_value[5] = req.body.PREMIA_UZ_MIES_PR_CZERWIEC; 
-    discreationary_bonus_value[6] = req.body.PREMIA_UZ_MIES_PR_LIPIEC; 
-    discreationary_bonus_value[7] = req.body.PREMIA_UZ_MIES_PR_SIERPIEN; 
-    discreationary_bonus_value[8] = req.body.PREMIA_UZ_MIES_PR_WRZESIEN; 
-    discreationary_bonus_value[9] = req.body.PREMIA_UZ_MIES_PR_PAZDZIERNIK; 
-    discreationary_bonus_value[10] = req.body.PREMIA_UZ_MIES_PR_LISTOPAD; 
-    discreationary_bonus_value[11] = req.body.PREMIA_UZ_MIES_PR_GRUDZIEN; 
+    discreationary_bonus_value[0] = req.body.PREMIA_UZ_MIES_PR_STYCZEN;
+    discreationary_bonus_value[1] = req.body.PREMIA_UZ_MIES_PR_LUTY;
+    discreationary_bonus_value[2] = req.body.PREMIA_UZ_MIES_PR_MARZEC;
+    discreationary_bonus_value[3] = req.body.PREMIA_UZ_MIES_PR_KWIECIE;
+    discreationary_bonus_value[4] = req.body.PREMIA_UZ_MIES_PR_MAJ;
+    discreationary_bonus_value[5] = req.body.PREMIA_UZ_MIES_PR_CZERWIEC;
+    discreationary_bonus_value[6] = req.body.PREMIA_UZ_MIES_PR_LIPIEC;
+    discreationary_bonus_value[7] = req.body.PREMIA_UZ_MIES_PR_SIERPIEN;
+    discreationary_bonus_value[8] = req.body.PREMIA_UZ_MIES_PR_WRZESIEN;
+    discreationary_bonus_value[9] = req.body.PREMIA_UZ_MIES_PR_PAZDZIERNIK;
+    discreationary_bonus_value[10] = req.body.PREMIA_UZ_MIES_PR_LISTOPAD;
+    discreationary_bonus_value[11] = req.body.PREMIA_UZ_MIES_PR_GRUDZIEN;
 
     let all_bonus = []
     for (let i = 0; i < 12; i++) {
-        
-        all_bonus.push(parseInt(motivation_bonus)+parseInt(discreationary_bonus_value[i]))
-        
+
+        all_bonus.push(parseInt(motivation_bonus) + parseInt(discreationary_bonus_value[i]))
+
     }
 
     let all_salary = []
     for (let i = 0; i < 12; i++) {
-        
-        all_salary.push(basic_salary+all_bonus[i])
-        
+
+        all_salary.push(basic_salary + all_bonus[i])
+
     }
 
     let min_salary = Math.min(...all_salary);
     let max_salary = Math.max(...all_salary);
-    
-    function avg(tab){
+
+    function avg(tab) {
         let result = 0
         for (let i = 0; i < tab.length; i++) {
             result += tab[i]
-            
+
         }
-        return result/tab.length;
+        return result / tab.length;
     }
 
     let avg_salary = avg(all_salary)
@@ -339,11 +338,11 @@ exports.updateEmployee = async(req, res, next) => {
     oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
     oracledb.autoCommit = true;
 
-    try{
+    try {
         connection = await oracledb.getConnection();
         const update = await connection.execute(queryUpdate);
-        res.status(200).json({update})
-    }catch(error){
+        res.status(200).json({ update })
+    } catch (error) {
         console.log(error);
         next(error)
     }

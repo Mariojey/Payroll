@@ -9,6 +9,8 @@ const session = require('express-session');
 
 const PORT = process.env.PORT;
 
+const db = require('../config/db')
+
 const payrollRouter = require('./router/payrollRouter')
 const loginRouter = require('./router/loginRouter')
 
@@ -32,6 +34,7 @@ app.use(
     })
 );
 
+app.use('/api/auth', )
 app.use('/api/payroll', payrollRouter)
 app.use('/api/login', loginRouter)
 

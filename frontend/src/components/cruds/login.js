@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import * as tokenHandler from '../../modules/TokenHandler'
 import './login.css'
 
 function Login(){
@@ -9,6 +10,12 @@ function Login(){
     }
     const [data, setData] = useState(initialState)
     const [message, setMessage] = useState(` `)
+
+    const [remember, setRemember] = useState(true)
+
+    function toggleRemember() {
+        setRemember(prevStatus => !prevStatus)
+    }
 
     const navigate = useNavigate();
 
@@ -27,13 +34,24 @@ function Login(){
                     },
                     body: JSON.stringify(data)
                 }).then(res => res.json())
-                .then(res => {
-                    if(res.status === 'OK'){
+                .then(data => {
+                    if(data.status === 'OK'){
+
+                        const admin = res.user;
+                        const token = res.token;
+                        const role = res.role;
+
+                        if(remember){
+                            tokenHandler.saveTokenData(admin, token, role)
+                        }else{
+                            tokenHandler.tempSaveTokenData(admin, token, role)
+                        }
+
                         navigate(`/employee/`)
                     }else{
-                        const URL = `http://127.0.0.1:8888/api/login/user`;
+                        const URLuser = `http://127.0.0.1:8888/api/login/user`;
                         try{
-                            fetch(URL, {
+                            fetch(URLuser, {
                                 method: 'POST',
                                 headers: {
                                     'Accept': 'application/json',
@@ -41,11 +59,19 @@ function Login(){
                                 },
                                 body: JSON.stringify(data)
                             }).then(res => res.json())
-                            .then(res => {
-                                if(res.status === 'OK'){
-                                    const userId = res.user.rows[0].EMPLOYEE_ID;
-                                    console.log(userId);
+                            .then(data => {
+                                if(data.status === 'OK'){
+                                    const userId = data.id;
+                                    const user = data.user;
+                                    const token = data.token;
+                                    const role = data.role;
                                     console.log(res);
+
+                                    if(remember){
+                                        tokenHandler.saveTokenData(user, token, role)
+                                    }else{
+                                        tokenHandler.tempSaveTokenData(user, token, role)
+                                    }
                                     navigate(`/employee/${userId}`)
                                 }else{
                                     setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
