@@ -51,7 +51,7 @@ exports.getUserByEmail = async(req, res, next) => {
         connection = await oracledb.getConnection();
         const user = await connection.execute(query);
         if((user.rows).length != 0){
-            res.status(200).json({status: 'OK', user})
+            res.status(200).json({status: 'OK', user, role: 'USER'})
         }else{
             res.status(200).json({status: 'ERROR', user})
         }
@@ -78,7 +78,7 @@ exports.getAdminByEmail = async(req, res, next) => {
         connection = await oracledb.getConnection();
         const admin = await connection.execute(query);
         if((admin.rows).length != 0){
-            res.status(200).json({status: 'OK', admin})
+            res.status(200).json({status: 'OK', admin, role: 'ADMIN'})
         }else{
             res.status(200).json({status: 'ERROR', admin})
         }
