@@ -307,12 +307,12 @@ function EmployeeCard(props){
 
     useEffect(
         () => {
-            async function getEmployeeById(){
+            function getEmployeeById(){
                 const URL = `http://127.0.0.1:8888/api/payroll/${id}`
                 try{
                     
 
-                    await fetch(URL, {
+                    fetch(URL, {
                       method: 'GET',
                       headers: {
                           'Accept': 'application/json',
@@ -328,7 +328,7 @@ function EmployeeCard(props){
                 }
             }
             getEmployeeById();
-        },[props]
+        },[]
     )
 
     console.log(employee);
