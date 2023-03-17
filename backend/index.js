@@ -9,32 +9,33 @@ const session = require('express-session');
 
 const PORT = process.env.PORT;
 
-const db = require('../config/db')
+const db = require('./config/db')
 
 const payrollRouter = require('./router/payrollRouter')
 const loginRouter = require('./router/loginRouter')
+const authRouter = require('./router/authRouter')
 
 app.use(cors());
-app.use(cookieParser)
+// app.use(cookieParser)
 app.use(bodyParser.urlencoded({
     extended: false
 }))
 
 app.use(bodyParser.json())
+// 
+// app.use(
+    // session({
+        // key: "userId",
+        // secret: "showMeList",
+        // resave: false,
+        // saveUninitialized: false,
+        // cookie: {
+            // expires: 60 * 60 * 24
+        // },
+    // })
+// );
 
-app.use(
-    session({
-        key: "userId",
-        secret: "showMeList",
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            expires: 60 * 60 * 24
-        },
-    })
-);
-
-app.use('/api/auth', )
+app.use('/api/auth', authRouter)
 app.use('/api/payroll', payrollRouter)
 app.use('/api/login', loginRouter)
 
