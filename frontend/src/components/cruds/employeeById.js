@@ -320,7 +320,7 @@ function EmployeeCard(props){
                       }
                     }).then(res => res.json())
                     .then(data => {
-                      setEmployee(data[0])
+                      setEmployee(data)
                       setLoading(false)
                     })
                     
@@ -334,24 +334,11 @@ function EmployeeCard(props){
 
     console.log(employee);
 
-    createTheme('dark', {
-        background: {
-          default: '#000',
-        },
-        color: {
-          default: '#fff'
-        }
-      });
+
     return(
         <div className="Card">
-      <DataTable
-        title="Pracownik"
-        columns={columns}
-        data={employee}
-        theme="dark"
-        progressPending={loading}
-        pagination
-      />
+          <h1>{employee[0].IMIE}</h1>
+          <h2>{employee[0].NAZWISKO}</h2>
     </div>
     )
 }

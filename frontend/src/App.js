@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 
 import * as tokenHandler from './modules/TokenHandler'
@@ -12,6 +12,9 @@ import Navbar from "./components/common/Navbar";
 import Login from "./components/cruds/login";
 function App(){
 
+  const [logged, setLogged] = useState(false)
+  const [roleAdmin, setRoleAdmin] = useState(false)
+
   const navigate = useNavigate();
 
   function verifyCredentials(){
@@ -19,10 +22,12 @@ function App(){
     .then(data => {
       if(data.status === "OK"){
         if(data.role === "ADMIN"){
+          setRoleAdmin(true)
           navigate('/employee')
         }else if(data.role === "USER"){
+          setRoleAdmin(false)
           navigate(`/employee/${data.id}`)
-        }else{
+          }else{
           navigate('/login')  
         }
       }
@@ -35,15 +40,29 @@ function App(){
 
   return(
     <div className="App">
+
+      {logged ? (
+        roleAdmin ? (
+          <Routes>
+            <Route exact path="/list" element={<ListView />} />
+            <Route exact path="/create" element={<Create />} />
+            <Route exact path="/employee/:id/" element={<EmployeeCard />} />
+            <Route exact path="/employee" element={<ListTable />} />
+            <Route exact path="/employee/edit/:id" element={<Edit />} />
+          </Routes>
+        ) : (
+          <Routes>
+              <Route exact path="/employee/:id/" element={<EmployeeCard />} />
+          </Routes>
+        )
+      ) : (
         <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route exact path="/list" element={<ListView />} />
-          <Route exact path="/create" element={<Create />} />
-          <Route exact path="/employee/:id/" element={<EmployeeCard />} />
-          <Route exact path="/employee" element={<ListTable />} />
-          <Route exact path="/employee/edit/:id" element={<Edit />} />
           <Route exact path="/login" element={<Login />} />
         </Routes>
+      )
+    
+    }
+
     </div>
   )
 
