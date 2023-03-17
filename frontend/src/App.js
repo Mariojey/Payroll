@@ -23,7 +23,7 @@ function App(){
         }else if(data.role === "USER"){
           navigate(`/employee/${data.id}`)
         }else{
-          navigate('/login')
+          navigate('/login')  
         }
       }
     })
@@ -35,16 +35,15 @@ function App(){
 
   return(
     <div className="App">
-      <Router>
         <Routes>
-          <Route exact path="/" element={<ListView />} />
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/list" element={<ListView />} />
           <Route exact path="/create" element={<Create />} />
           <Route exact path="/employee/:id/" element={<EmployeeCard />} />
           <Route exact path="/employee" element={<ListTable />} />
           <Route exact path="/employee/edit/:id" element={<Edit />} />
-          <Route exact path="/login/" element={<Login />} />
+          <Route exact path="/login" element={<Login />} />
         </Routes>
-      </Router>
     </div>
   )
 

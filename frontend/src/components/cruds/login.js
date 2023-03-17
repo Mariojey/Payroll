@@ -37,9 +37,9 @@ function Login(){
                 .then(data => {
                     if(data.status === 'OK'){
 
-                        const admin = res.user;
-                        const token = res.token;
-                        const role = res.role;
+                        const admin = data.user;
+                        const token = data.token;
+                        const role = data.role;
 
                         if(remember){
                             tokenHandler.saveTokenData(admin, token, role)
@@ -65,7 +65,7 @@ function Login(){
                                     const user = data.user;
                                     const token = data.token;
                                     const role = data.role;
-                                    console.log(res);
+                                    console.log(data);
 
                                     if(remember){
                                         tokenHandler.saveTokenData(user, token, role)
@@ -75,7 +75,7 @@ function Login(){
                                     navigate(`/employee/${userId}`)
                                 }else{
                                     setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
-                                    console.log(res.status);
+                                    console.log(data.status);
                                 }
                             })
                             

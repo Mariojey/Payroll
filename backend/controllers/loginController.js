@@ -86,8 +86,8 @@ exports.getAdminByEmail = async(req, res, next) => {
         connection = await oracledb.getConnection();
         const admin = await connection.execute(query);
         if ((admin.rows).length > 0) {
-            const email = user.rows.email;
-            const id = user.rows.id;
+            const email = admin.rows.email;
+            const id = admin.rows.id;
 
             const token = tokenHandler.generateToken(email, id, 'ADMIN');
 
