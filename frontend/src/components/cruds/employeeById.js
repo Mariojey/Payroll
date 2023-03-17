@@ -321,6 +321,7 @@ function EmployeeCard(props){
                     }).then(res => res.json())
                     .then(data => {
                       setEmployee(data[0])
+                      setLoading(false)
                     })
                     
                 }catch(error){
@@ -332,7 +333,7 @@ function EmployeeCard(props){
     )
 
     console.log(employee);
-    setLoading(false)
+
     createTheme('dark', {
         background: {
           default: '#000',
