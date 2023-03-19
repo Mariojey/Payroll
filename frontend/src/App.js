@@ -22,9 +22,11 @@ function App(){
     .then(data => {
       if(data.status === "OK"){
         if(data.role === "ADMIN"){
+          setLogged(true)
           setRoleAdmin(true)
           navigate('/employee')
         }else if(data.role === "USER"){
+          setLogged(true)
           setRoleAdmin(false)
           navigate(`/employee/${data.id}`)
           }else{
