@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DataTable, {createTheme} from 'react-data-table-component';
 import { Link, useNavigate, useParams } from "react-router-dom";
+import './card.css';
 
 function EmployeeCard(props){
   const initialState = {
@@ -104,8 +105,71 @@ function EmployeeCard(props){
 
     return(
         <div className="Card">
-          <h1>{employee[0].IMIE}</h1>
-          <h2>{employee[0].NAZWISKO}</h2>
+          <h1>Profil Pracownika</h1>
+          <table>
+            <tr>
+              <td>Imie</td>
+              <td>{employee[0].IMIE}</td>
+            </tr>
+            <tr>
+              <td>Nazwisko</td>
+              <td>{employee[0].NAZWISKO}</td>
+            </tr>
+            <tr>
+              <td>Pensja Zasadnicza</td>
+              <td>{employee[0].PENSJA_ZASADNICZA}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Styczeń</td>
+              <td>{employee[0].PENSJA_CAL_MIES_STY}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Luty</td>
+              <td>{employee[0].PENSJA_CAL_MIES_LUT}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Marzec</td>
+              <td>{employee[0].PENSJA_CAL_MIES_MAR}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Kwiecień</td>
+              <td>{employee[0].PENSJA_CAL_MIES_KWI}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Maj</td>
+              <td>{employee[0].PENSJA_CAL_MIES_MAJ}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Czerwiec</td>
+              <td>{employee[0].PENSJA_CAL_MIES_CZE}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Lipiec</td>
+              <td>{employee[0].PENSJA_CAL_MIES_LIP}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Sierpnień</td>
+              <td>{employee[0].PENSJA_CAL_MIES_SIE}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Wrzesień</td>
+              <td>{employee[0].PENSJA_CAL_MIES_WRZ}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Październik</td>
+              <td>{employee[0].PENSJA_CAL_MIES_PAZ}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Listopad</td>
+              <td>{employee[0].PENSJA_CAL_MIES_LIS}</td>
+            </tr>
+            <tr>
+              <td>Pensja Całkowita Miesięczna- Grudzień</td>
+              <td>{employee[0].PENSJA_CAL_MIES_GRU}</td>
+            </tr>
+
+
+          </table>
     </div>
     )
 }
