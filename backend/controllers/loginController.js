@@ -70,13 +70,13 @@ exports.getUserByEmail = async(req, res, next) => {
 }
 
 exports.getAdminByEmail = async(req, res, next) => {
-    let email = req.body.email;
-    let password = req.body.password;
+    let email_req = req.body.email;
+    let password_req = req.body.password;
 
     let query = `
     SELECT * FROM lista_plac_admins
-    WHERE email = '${email}'
-    AND password = '${password}'
+    WHERE email = '${email_req}'
+    AND password = '${password_req}'
     `
     let connection;
     oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
@@ -86,8 +86,8 @@ exports.getAdminByEmail = async(req, res, next) => {
         connection = await oracledb.getConnection();
         const admin = await connection.execute(query);
         if ((admin.rows).length > 0) {
-            const email = admin.rows.email;
-            const id = admin.rows.id;
+            const email = admin.rows[0].EMAIL;
+            const id = admin.rows[0].ID;
 
             const token = tokenHandler.generateToken(email, id, 'ADMIN');
 
