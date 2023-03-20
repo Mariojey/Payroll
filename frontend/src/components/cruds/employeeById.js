@@ -3,7 +3,7 @@ import DataTable, {createTheme} from 'react-data-table-component';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import './card.css';
 
-function EmployeeCard(props){
+function EmployeeCard(){
   const initialState = {
     ID: 0,
     IMIE: '',
