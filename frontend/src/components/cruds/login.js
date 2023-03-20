@@ -8,7 +8,7 @@ function Login(){
         email: '',
         password: ''
     }
-    const [data, setData] = useState(initialState)
+    const [dataLogin, setDataLogin] = useState(initialState)
     const [message, setMessage] = useState(` `)
 
     const [remember, setRemember] = useState(true)
@@ -32,7 +32,7 @@ function Login(){
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(dataLogin)
                 }).then(res => res.json())
                 .then(data => {
                     if(data.status === 'OK'){
@@ -57,7 +57,7 @@ function Login(){
                                     'Accept': 'application/json',
                                     'Content-Type': 'application/json'
                                 },
-                                body: JSON.stringify(data)
+                                body: JSON.stringify(dataLogin)
                             }).then(res => res.json())
                             .then(data => {
                                 if(data.status === 'OK'){
@@ -66,6 +66,7 @@ function Login(){
                                     const token = data.token;
                                     const role = data.role;
                                     console.log(data);
+                                    console.log(userId);
 
                                     if(remember){
                                         tokenHandler.saveTokenData(user, token, role)
@@ -75,7 +76,7 @@ function Login(){
                                     navigate(`/employee/${userId}`)
                                 }else{
                                     setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
-                                    console.log(data.status);
+                                    console.log(data.status, data.user);
                                 }
                             })
                             
@@ -91,9 +92,9 @@ function Login(){
         }
         checkData()
     }
-    console.log(data);
+    console.log(dataLogin);
     function handleChange(event){
-        setData({...data, [event.target.name]: event.target.value});
+        setDataLogin({...dataLogin, [event.target.name]: event.target.value});
     }
 
     return(
@@ -107,7 +108,7 @@ function Login(){
 						name="email"
 						type="email"
 						required
-						value={data.email}
+						value={dataLogin.email}
 						onChange={handleChange}
 						className="form-control"
 					/>
@@ -118,7 +119,7 @@ function Login(){
 						name="password"
 						type="password"
 						required
-						value={data.password}
+						value={dataLogin.password}
 						onChange={handleChange}
 						className="form-control"
 					/>

@@ -69,14 +69,13 @@ function EmployeeCard(props){
     const [loading, setLoading] = useState(false)
     const [perPage, setPerPage] = useState(20)
 
-    const {id} = useParams();
+    const { ID } = useParams();
     const navigate = useNavigate();
-
-    
+    console.log(ID);
     useEffect(
         () => {
             function getEmployeeById(){
-                const URL = `http://127.0.0.1:8888/api/payroll/${id}`
+                const URL = `http://127.0.0.1:8888/api/payroll/${ID}`
                 try{
                     
 

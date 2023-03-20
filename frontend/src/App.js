@@ -55,11 +55,15 @@ function App(){
         ) : (
           <Routes>
               <Route exact path="/employee/:id/" element={<EmployeeCard />} />
+              <Route exact path="/employee/:id" element={<EmployeeCard />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/userProfile" element={<EmployeeCard />} />
           </Routes>
         )
       ) : (
         <Routes>
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/" element={<Login />} />
         </Routes>
       )
     

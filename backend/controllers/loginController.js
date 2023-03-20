@@ -36,13 +36,13 @@ exports.getAllAdmins = async(req, res, next) => {
 }
 
 exports.getUserByEmail = async(req, res, next) => {
-    let email = req.body.email;
-    let password = req.body.password;
+    let email_req = req.body.email;
+    let password_req = req.body.password;
 
     let query = `
     SELECT * FROM lista_plac_users
-    WHERE email = '${email}' 
-    AND password = '${password}'
+    WHERE email = '${email_req}' 
+    AND password = '${password_req}'
     `
 
     let connection;
@@ -52,16 +52,16 @@ exports.getUserByEmail = async(req, res, next) => {
     try {
         connection = await oracledb.getConnection();
         const user = await connection.execute(query);
-        if ((user.rows).length != 0) {
-            const email = user.rows.email;
-            const id = user.rows.id;
+        if ((user.rows).length > 0) {
+            const email = user.rows[0].EMAIL;
+            const id = user.rows[0].ID;
 
             const token = tokenHandler.generateToken(email, id, 'USER');
 
             res.status(200).json({ status: 'OK', user: email, token: token, role: 'USER', id: id })
             return;
         } else {
-            res.status(400).json({ status: 'ERROR', user: email })
+            res.status(400).json({ status: 'ERROR', user: email_req })
         }
     } catch (error) {
         console.log(error);
