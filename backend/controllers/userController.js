@@ -1,10 +1,21 @@
 const oracledb = require('oracledb');
 
 const sha512 = require('js-sha512');
-const tokenHandler = require('../modules/authtoken')
+const tokenHandler = require('../modules/authtoken');
+
 
 exports.getAllUsers = async(req, res, next) => {
-    let query = `SELECT * FROM lista_plac_users`;
+    let query = `SELECT 
+    lista_plac_users.id,
+    lista_plac_users.employee_id, 
+    lista_plac_users.email,
+    lista_plac.imie,
+    lista_plac.nazwisko 
+    FROM lista_plac_users
+    JOIN lista_plac 
+    ON lista_plac_users.employee_id = lista_plac.id
+    `;
+
     let connection;
     oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
     oracledb.autoCommit = true;
@@ -16,6 +27,60 @@ exports.getAllUsers = async(req, res, next) => {
     } catch (error) {
         console.log(error);
         next(error)
+    }
+}
+
+exports.createUser = async(req, res, next) => {
+    let email = req.body.EMAIL;
+    let password = req.body.PASSWORD;
+    let employee_id = req.body.EMPLOYEE_ID;
+    console.log(req.body);
+    console.log(email, password, parseInt(employee_id));
+    let connection;
+    oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+    oracledb.autoCommit = true;
+
+    let count_of_emials = 0
+    async function checkUniqueEmail(email){
+        let queryCheckEmail = `
+        SELECT email FROM lista_plac_users WHERE email = '${email}'
+        `;
+        try{
+            connection = await oracledb.getConnection();
+            const emails = await connection.execute(queryCheckEmail);
+            count_of_emials = emails.length;
+        }catch(error){
+            console.log(error)
+            next(error)
+        }
+    }
+    checkUniqueEmail(email)
+    console.log(count_of_emials);
+    if (count_of_emials > 0) {
+        res.status(406).send({status: "NOT OK", message: "User who using this email is already saved in our database, please choose something else email"})
+    }else{
+        let query=`
+            INSERT INTO LISTA_PLAC_USERS(
+                ID,
+                EMPLOYEE_ID,
+                EMAIL,
+                PASSWORD
+            )VALUES(
+                place_users_seq.NEXTVAL,
+                ${employee_id},
+                '${email}',
+                '${password}'
+            )
+        `;
+        try{
+            connection = await oracledb.getConnection();
+            const save = await connection.execute(query);
+            
+            res.status(200).json({save})
+        }catch(error){
+            console.log(error);
+            next(error)
+        }
     }
 }
 

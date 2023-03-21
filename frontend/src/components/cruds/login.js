@@ -76,7 +76,6 @@ function Login(){
                                     navigate(`/employee/${userId}`)
                                 }else{
                                     setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
-                                    console.log(data.status, data.user);
                                 }
                             })
                             

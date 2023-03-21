@@ -10,6 +10,9 @@ import ListTable from "./components/cruds/listTable";
 import Edit from "./components/cruds/edit";
 import Navbar from "./components/common/Navbar";
 import Login from "./components/cruds/login";
+import UsersList from "./components/cruds/usersList";
+import CreateUser from "./components/cruds/createUser";
+
 function App(){
 
   const [logged, setLogged] = useState(false)
@@ -53,6 +56,8 @@ function App(){
             <Route exact path="/employee/:id/" element={<EmployeeCard />} />
             <Route exact path="/employee" element={<ListTable />} />
             <Route exact path="/employee/edit/:id" element={<Edit />} />
+            <Route exact path="/users" element={<UsersList />} />
+            <Route exact path="/createuser" element={<CreateUser />} />
           </Routes>
         ) : (
           <Routes>

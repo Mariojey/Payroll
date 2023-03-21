@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 const db = require('./config/db')
 
 const payrollRouter = require('./router/payrollRouter')
-const loginRouter = require('./router/loginRouter')
+const userRouter = require('./router/userRouter')
 const authRouter = require('./router/authRouter')
 
 app.use(cors());
@@ -37,7 +37,7 @@ app.use(bodyParser.json())
 
 app.use('/api/auth', authRouter)
 app.use('/api/payroll', payrollRouter)
-app.use('/api/login', loginRouter)
+app.use('/api/login', userRouter)
 
 app.use((err, req, res, next) => {
     console.log(err.stack);

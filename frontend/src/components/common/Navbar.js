@@ -10,10 +10,16 @@ function Navbar(){
                 <NavLink className="navLink" to="/">Strona Główna</NavLink>
                 </li>
                 <li className="navItem">
-                <NavLink className="navLink" to="/employee">Lista</NavLink>
+                <NavLink className="navLink" to="/employee">Pracownicy</NavLink>
                 </li>
                 <li className="navItem">
-                <NavLink className="navLink" to="/create">Dodaj</NavLink>
+                <NavLink className="navLink" to="/create">Dodaj pracownika</NavLink>
+                </li>
+                <li className="navItem">
+                <NavLink className="navLink" to="/users">Użytkownicy</NavLink>
+                </li>
+                <li className="navItem">
+                <NavLink className="navLink" to="/createuser">Dodaj użytkownika</NavLink>
                 </li>
             </ul>
         </nav>

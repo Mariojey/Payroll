@@ -11,11 +11,6 @@ function ListTable() {
   
 
 
-  
-
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   async function fetchData(){
     
@@ -34,7 +29,9 @@ function ListTable() {
     setData(list)
     
   }
-
+  useEffect(() => {
+    fetchData()
+  }, [])
   
   return (
     <div className="App">

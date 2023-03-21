@@ -2,19 +2,21 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 
-const loginController = require('../controllers/loginController');
+const userController = require('../controllers/userController');
 
 router.route('/users').get(
-    loginController.getAllUsers
+    userController.getAllUsers
+).post(
+    userController.createUser
 )
 router.route('/user').post(
-    loginController.getUserByEmail
+    userController.getUserByEmail
 )
 router.route('/admins').get(
-    loginController.getAllAdmins
+    userController.getAllAdmins
 )
 router.route('/admin').post(
-    loginController.getAdminByEmail
+    userController.getAdminByEmail
 )
 
 module.exports = router
