@@ -69,13 +69,13 @@ function EmployeeCard(){
     const [loading, setLoading] = useState(false)
     const [perPage, setPerPage] = useState(20)
 
-    const { ID } = useParams();
+    const id = useParams();
     const navigate = useNavigate();
-    console.log(ID);
+    console.log(id);
     useEffect(
         () => {
             function getEmployeeById(){
-                const URL = `http://127.0.0.1:8888/api/payroll/${ID}`
+                const URL = `http://127.0.0.1:8888/api/payroll/${id}`
                 try{
                     
 
@@ -108,63 +108,63 @@ function EmployeeCard(){
           <table>
             <tr>
               <td>Imie</td>
-              <td>{employee[0].IMIE}</td>
+              <td>{employee.IMIE}</td>
             </tr>
             <tr>
               <td>Nazwisko</td>
-              <td>{employee[0].NAZWISKO}</td>
+              <td>{employee.NAZWISKO}</td>
             </tr>
             <tr>
               <td>Pensja Zasadnicza</td>
-              <td>{employee[0].PENSJA_ZASADNICZA}</td>
+              <td>{employee.PENSJA_ZASADNICZA}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Styczeń</td>
-              <td>{employee[0].PENSJA_CAL_MIES_STY}</td>
+              <td>{employee.PENSJA_CAL_MIES_STY}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Luty</td>
-              <td>{employee[0].PENSJA_CAL_MIES_LUT}</td>
+              <td>{employee.PENSJA_CAL_MIES_LUT}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Marzec</td>
-              <td>{employee[0].PENSJA_CAL_MIES_MAR}</td>
+              <td>{employee.PENSJA_CAL_MIES_MAR}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Kwiecień</td>
-              <td>{employee[0].PENSJA_CAL_MIES_KWI}</td>
+              <td>{employee.PENSJA_CAL_MIES_KWI}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Maj</td>
-              <td>{employee[0].PENSJA_CAL_MIES_MAJ}</td>
+              <td>{employee.PENSJA_CAL_MIES_MAJ}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Czerwiec</td>
-              <td>{employee[0].PENSJA_CAL_MIES_CZE}</td>
+              <td>{employee.PENSJA_CAL_MIES_CZE}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Lipiec</td>
-              <td>{employee[0].PENSJA_CAL_MIES_LIP}</td>
+              <td>{employee.PENSJA_CAL_MIES_LIP}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Sierpnień</td>
-              <td>{employee[0].PENSJA_CAL_MIES_SIE}</td>
+              <td>{employee.PENSJA_CAL_MIES_SIE}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Wrzesień</td>
-              <td>{employee[0].PENSJA_CAL_MIES_WRZ}</td>
+              <td>{employee.PENSJA_CAL_MIES_WRZ}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Październik</td>
-              <td>{employee[0].PENSJA_CAL_MIES_PAZ}</td>
+              <td>{employee.PENSJA_CAL_MIES_PAZ}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Listopad</td>
-              <td>{employee[0].PENSJA_CAL_MIES_LIS}</td>
+              <td>{employee.PENSJA_CAL_MIES_LIS}</td>
             </tr>
             <tr>
               <td>Pensja Całkowita Miesięczna- Grudzień</td>
-              <td>{employee[0].PENSJA_CAL_MIES_GRU}</td>
+              <td>{employee.PENSJA_CAL_MIES_GRU}</td>
             </tr>
 
 

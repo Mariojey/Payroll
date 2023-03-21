@@ -53,7 +53,7 @@ function App(){
           <Routes>
             <Route exact path="/list" element={<ListView />} />
             <Route exact path="/create" element={<Create />} />
-            <Route exact path="/employee/:id/" element={<EmployeeCard />} />
+            <Route path="/employee/:id/" element={<EmployeeCard />} />
             <Route exact path="/employee" element={<ListTable />} />
             <Route exact path="/employee/edit/:id" element={<Edit />} />
             <Route exact path="/users" element={<UsersList />} />
@@ -61,7 +61,7 @@ function App(){
           </Routes>
         ) : (
           <Routes>
-              <Route exact path='/employee/:ID' element={<EmployeeCard />} />
+              <Route path='/employee/:id' element={<EmployeeCard />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/userProfile" element={<EmployeeCard />} />
           </Routes>

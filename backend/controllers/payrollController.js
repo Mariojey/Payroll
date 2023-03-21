@@ -22,6 +22,7 @@ exports.getEmployeeById = async(req, res, next) => {
 
 
     let id = req.params.id;
+    console.log(id);
     let query = `SELECT * FROM lista_plac WHERE ID = ${id}`;
     let connection;
     oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
