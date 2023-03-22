@@ -47,7 +47,7 @@ function Login(){
                             tokenHandler.tempSaveTokenData(admin, token, role)
                         }
 
-                        navigate(`/employee/`)
+                        navigate(`/employee`)
                     }else{
                         const URLuser = `http://127.0.0.1:8888/api/login/user`;
                         try{

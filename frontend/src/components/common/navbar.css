@@ -14,6 +14,10 @@
     min-height: 100px;
     background-color: var(--black);
     color: var(--white);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .navList{
     list-style: none;

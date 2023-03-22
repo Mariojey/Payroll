@@ -31,7 +31,7 @@ function UsersList() {
 
         <Navbar />
         <div className="tableComponent">
-            <h1>Lista Użytkowników</h1>
+            <h1>LISTA UŻYTKOWNIKÓW</h1>
             <table className="table">
                 <thead>
                     <tr>
