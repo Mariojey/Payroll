@@ -34,6 +34,8 @@ exports.createUser = async(req, res, next) => {
     let email = req.body.EMAIL;
     let password = req.body.PASSWORD;
     let employee_id = req.body.EMPLOYEE_ID;
+
+    const encodedPassword = sha512(password)
     console.log(req.body);
     console.log(email, password, parseInt(employee_id));
     let connection;
@@ -69,7 +71,7 @@ exports.createUser = async(req, res, next) => {
                 place_users_seq.NEXTVAL,
                 ${employee_id},
                 '${email}',
-                '${password}'
+                '${encodedPassword}'
             )
         `;
         try{
@@ -103,11 +105,13 @@ exports.getAllAdmins = async(req, res, next) => {
 exports.getUserByEmail = async(req, res, next) => {
     let email_req = req.body.email;
     let password_req = req.body.password;
+    let encodedPassword = sha512(password_req)
+
 
     let query = `
     SELECT * FROM lista_plac_users
     WHERE email = '${email_req}' 
-    AND password = '${password_req}'
+    AND password = '${encodedPassword}'
     `
 
     let connection;
