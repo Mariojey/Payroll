@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, redirect } from "react-router-dom";
 import * as tokenHandler from '../../modules/TokenHandler'
 import './login.css'
 
@@ -47,7 +47,7 @@ function Login(){
                             tokenHandler.tempSaveTokenData(admin, token, role)
                         }
 
-                        navigate(`/employee`)
+                        return navigate(`/employee`)
                     }else{
                         const URLuser = `http://127.0.0.1:8888/api/login/user`;
                         try{
@@ -73,7 +73,7 @@ function Login(){
                                     }else{
                                         tokenHandler.tempSaveTokenData(user, token, role)
                                     }
-                                    navigate(`/employee/${userId}`)
+                                    return navigate(`/employee/${userId}`)
                                 }else{
                                     setMessage(`Nie znaleziono takiego użytkownika w bazie danych`)
                                 }
